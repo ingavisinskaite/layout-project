@@ -9,13 +9,13 @@ article {
     margin: 7px 10px;
 }
 
-.mainview {
+.homepage {
     display: flex;
-    height: 98vh;
+    height: 100vh;
 }
 
-.navbar {
-    flex: 1 0 20%;
+.sidebar {
+    flex: 1 0 250px;
     display: flex;
     flex-direction: column;
 }
@@ -36,7 +36,7 @@ article {
     flex-direction: column;
 }
 
-.header {
+.navbar {
     flex: 1 0 5%;
 }
 
@@ -130,7 +130,16 @@ article {
     background-color: rgb(106, 107, 129);
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 800px) {
+    .homepage {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        flex: 50px;
+    }
+
     .columns {
         flex-wrap: wrap;
     }
