@@ -9,184 +9,182 @@ article {
     margin: 7px 10px;
 }
 
-.MAINVIEW {
+.mainview {
     display: flex;
     height: 98vh;
-    width: 100vw;
 }
 
-.MAINVIEW__navbar {
+.navbar {
     flex: 1 0 20%;
     display: flex;
     flex-direction: column;
 }
 
-.MAINVIEW__navbar__logo {
+.logo {
     background-color: rgb(44, 42, 42);
     flex: 1 0 5%;
 }
 
-.MAINVIEW__navbar__links {
+.links {
     background-color: rgb(66, 63, 63);
     flex: 7 0 85%;
 }
 
-.MAINVIEW__container {
+.container {
     flex: 12 0 75%;
     display: flex;
     flex-direction: column;
 }
 
-.MAINVIEW__container__header {
+.header {
     flex: 1 0 5%;
 }
 
-.MAINVIEW__container__articles {
+.content {
     flex: 7 0 85%;
     background-color: lightgray;
     display: flex;
     flex-direction: column;
 }
 
-.MAINVIEW__container__articles__columns {
+.columns {
     flex: 12 0 80%;
     display: flex;
 }
 
-.MAINVIEW__container__articles__columns-column1 {
+.column1 {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.MAINVIEW__container__articles__columns-column1 article {
+.column1 article {
     flex: 1;
 }
 
-.MAINVIEW__container__articles__columns-column2 {
+.column2 {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.MAINVIEW__container__articles__columns-column2-article1 {
+.column2 article:nth-child(1) {
     flex: 3;
 }
 
-.MAINVIEW__container__articles__columns-column2-article2 {
+.column2 article:nth-child(2) {
     flex: 2;
 }
 
-.MAINVIEW__container__articles__columns-column3 {
+.column3 {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.MAINVIEW__container__articles__columns-column3-article1 {
+.column3 > article:nth-child(1) {
     flex: 5;
 }
 
-.MAINVIEW__container__articles__columns-column3-article2,
-.MAINVIEW__container__articles__columns-column3-article3 {
+.column3 > article:nth-child(2),
+.column3 > article:nth-child(3) {
     flex: 3;
 }
 
-.MAINVIEW__container__articles__columns-column3__section {
+.section {
     flex: 7;
     display: flex;
     flex-wrap: wrap;
 }
 
-.MAINVIEW__container__articles__columns-column3__section article {
+.section article {
     flex: 1 0 30%;
 }
 
-.MAINVIEW__container__articles__columns-column3__section-article1 {
+.section article:nth-child(1) {
     background-color: rgb(106, 107, 129);
 }
 
-.MAINVIEW__container__articles__columns-column3__section-article2 {
+.section article:nth-child(2) {
     background-color: skyblue;
 }
 
-.MAINVIEW__container__articles__columns-column3__section-article3 {
+.section article:nth-child(3) {
     background-color: rgb(66, 63, 63);
 }
 
-.MAINVIEW__container__articles__row {
+.row {
     flex: 1 0 10%;
     display: flex;
 }
 
-.MAINVIEW__container__articles__row article {
+.row article {
     flex: 1 0 15%;
 }
 
-.MAINVIEW__container__articles__row-article3 {
+.row article:nth-child(3) {
     background-color: tomato;
 }
 
-.MAINVIEW__container__articles__row-article4 {
+.row article:nth-child(4) {
     background-color: rgb(106, 107, 129);
 }
 
 @media screen and (max-width: 750px) {
-    .MAINVIEW__container__articles__columns {
+    .columns {
         flex-wrap: wrap;
     }
 
-    .MAINVIEW__container__articles__columns-column1,
-    .MAINVIEW__container__articles__columns-column2 {
+    .column1, .column2 {
         flex: 5 0 45%;
     }
 
-    .MAINVIEW__container__articles__columns-column3 {
+    .column3 {
         flex: 3 0 45%;
         flex-direction: row;
         flex-wrap: wrap;
     }
 
-    .MAINVIEW__container__articles__columns-column3-article1 {
+    .column3 > article:nth-child(1) {
         flex: 3 0 30%;
     }
 
-    .MAINVIEW__container__articles__columns-column3-article2,
-    .MAINVIEW__container__articles__columns-column3-article3 {
+    .column3 > article:nth-child(2),
+    .column3 > article:nth-child(3) {
         flex: 2 0 20%;
     }
 
-    .MAINVIEW__container__articles__columns-column3__section {
+    .section {
         flex: 1 0 20%;
         flex-wrap: wrap;
     }
 
-    .MAINVIEW__container__articles__columns-column3__section article {
+    .section article {
         flex: 1 0 45%;
     }
 
-    .MAINVIEW__container__articles__row {
+    .row {
         flex: 1 0 15%;
     }
 }
 
 @media screen and (max-width: 550px) {
 
-    .MAINVIEW__container__articles__columns-column1,
-    .MAINVIEW__container__articles__columns-column2 {
+    .column1,
+    .column2 {
         flex: 1 0 51%;
     }
 
-    .MAINVIEW__container__articles__columns-column3 {
+    .column3 {
         flex-direction: column;
         flex: 1 0 51%;
     }
 
-    .MAINVIEW__container__articles__row {
+    .row {
         flex-wrap: wrap;
     }
 
-    .MAINVIEW__container__articles__row article {
+    .row article {
         flex: 1 0 30%;
     }
 }
