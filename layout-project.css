@@ -15,7 +15,7 @@ body {
 }
 
 .sidenav {
-    flex: 1 0 250px;
+    flex: 1 0 200px;
     display: flex;
     flex-direction: column;
 }
@@ -130,8 +130,33 @@ body {
     background-color: #6a6b81;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
+    .columns {
+        flex-wrap: wrap;
+    }
 
+    .column1,
+    .column2,
+    .column3 {
+        flex: 1 0 51%;
+    }
+
+    .column3-article-middle,
+    .column3-article-bottom {
+        flex: 5;
+    }
+
+    .column3-innerSection {
+        flex: 4;
+    }
+
+    .column3-innerSection article {
+        flex: 1 0 20%;
+    }
+
+    .row {
+        flex: 1 0 5%;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -148,36 +173,32 @@ body {
         flex-wrap: wrap;
     }
 
-    .column1, .column2 {
-        flex: 5 0 45%;
-    }
-
     .column3 {
-        flex: 3 0 45%;
-        flex-direction: row;
         flex-wrap: wrap;
+        flex-direction: row;
     }
 
-    .column3-article-top {
-        flex: 3 0 30%;
+    .column3-article-top,
+    .column3-article-middle {
+        flex: 1 0 45%;
     }
 
-    .column3-article-middle,
+
     .column3-article-bottom {
-        flex: 2 0 20%;
+        flex: 1 0 51%;
     }
 
     .column3-innerSection {
-        flex: 1 0 20%;
+        flex: 1 0 45%;
         flex-wrap: wrap;
     }
 
     .column3-innerSection article {
-        flex: 1 0 45%;
+        flex: 1 0 33%;
     }
 
     .row {
-        flex: 1 0 15%;
+        flex: 1 0 10%;
     }
 }
 
@@ -189,7 +210,6 @@ body {
     }
 
     .column3 {
-        flex-direction: column;
         flex: 1 0 51%;
     }
 
