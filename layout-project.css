@@ -95,30 +95,24 @@ tr:hover:not(.table-header) {
 }
 
 .links {
-  background-color: #423f3f;
-  flex: 7 0 95%;
+    background-color: #423f3f;
+    height: 100%;
 }
 
 .container {
-  flex: 12 0 75%;
-  display: flex;
-  flex-direction: column;
+    flex: 12 0 75%;
 }
 
 .navbar {
-  flex: 1 0 80px;
+    height: 80px;
 }
 
 .dashboard {
-  flex: 7 0 85%;
-  background-color: #f2f1f1;
-  display: flex;
-  flex-direction: column;
+    background-color: #d3d3d3;
 }
 
 .columns {
-  flex: 12 0 80%;
-  display: flex;
+    display: flex;
 }
 
 .column1 {
@@ -133,10 +127,14 @@ tr:hover:not(.table-header) {
   height: 50px;
   border-radius: 50%;
 }
+.column1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
 .column1 article {
-  flex: 1;
-  max-height: 600px;
+    flex: 1 0 auto;
 }
 
 .column2 {
@@ -146,15 +144,11 @@ tr:hover:not(.table-header) {
 }
 
 .column2-article-top {
-  flex: 3;
-  max-height: 700px;
+    flex: 3 0 auto;
 }
 
 .column2-article-bottom {
-  flex: 2;
-  max-height: 500px;
-  display: flex;
-  flex-direction: column;
+    flex: 2 0 auto;
 }
 
 .column3 {
@@ -164,20 +158,18 @@ tr:hover:not(.table-header) {
 }
 
 .column3-article-top {
-  flex: 5;
-  max-height: 400px;
+    flex: 5 0 auto;
 }
 
 .column3-article-middle,
 .column3-article-bottom {
-  flex: 3;
-  max-height: 300px;
+    flex: 3 0 auto;
 }
 
 .column3-innerSection {
-  flex: 7;
-  display: flex;
-  flex-wrap: wrap;
+    flex: 7 0 auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .column3-innerSection article {
@@ -198,12 +190,12 @@ tr:hover:not(.table-header) {
 }
 
 .row {
-  flex: 1 0 10%;
-  display: flex;
+    display: flex;
 }
 
 .row article {
-  flex: 1 0 15%;
+    width: 25%;
+    box-sizing: border-box;
 }
 
 .row-article-innerRight {
@@ -225,14 +217,14 @@ tr:hover:not(.table-header) {
     flex: 1 0 51%;
   }
 
-  .column3-article-middle,
-  .column3-article-bottom {
-    flex: 5;
-  }
+    .column3-article-middle,
+    .column3-article-bottom {
+        flex: 5 0 auto;
+    }
 
-  .column3-innerSection {
-    flex: 4;
-  }
+    .column3-innerSection {
+        flex: 4 0 auto;
+    }
 
   .column3-innerSection article {
     flex: 1 0 20%;
@@ -248,14 +240,15 @@ tr:hover:not(.table-header) {
     flex-direction: column;
   }
 
-  .sidenav {
-    flex-direction: row;
-    flex: 1 0 60px;
-  }
+    .logo {
+        height: 80px;
+        width: 20%;
+    }
 
-  .logo {
-    flex: 1 0 60px;
-  }
+    .links {
+        height: 80px;
+        width: 80%;
+    }
 
   .links {
     flex: 7;
