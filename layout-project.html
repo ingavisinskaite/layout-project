@@ -14,12 +14,23 @@
             <nav class="links"></nav>
         </aside>
         <div class="container">
-            <nav class="navbar"></nav>
+            <nav class="navbar">
+                <div class="navbar-dropdowns-container">
+                    <div class="navbar-dropdown navbar-issues arrow-after">Issues History</div>
+                    <div class="navbar-dropdown navbar-dashboards arrow-after">Dashboards</div>
+                    <div class="navbar-dropdown navbar-projects arrow-after">Projects</div>
+                </div>
+                <div class="navbar-search-profile-container">
+                    <input placeholder="Search.." class="navbar-search" />
+                    <div class="navbar-profile"></div>
+                    <div class="arrow-after"></div>
+                </div>
+            </nav>
             <div class="dashboard">
                 <div class="columns">
                     <section class="column1">
-                        <article class="widget column1-article-top">
-                            <table class="table">
+                        <article class="widget table column1-article-top">
+                            <table class="table-data">
                                 <tr class="table-header dark">
                                     <th>#</th>
                                     <th>First<br>Name</th>
@@ -116,31 +127,35 @@
                     </section>
                     <section class="column2">
                         <article class="widget chat column2-article-top">
-                            <p>Conversation: <strong>Software</strong></p>
+                            <p class="chat-type">Conversation: <strong>Software</strong></p>
                             <div class="message">
                                 <figure><img class="person-img"
                                         src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
                                 </figure>
-                                <div>David Scott<br>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas
-                                    commodo commodo felis
-                                    at placerat. Aliquam et magna sit amet nisi fermentum posuere.
+                                <div class="message-bubble tri-right left-in">
+                                    <div class="talktext">
+                                        <p> Chris Smith<br>Maecenas commodo commodo felis
+                                            at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="message">
                                 <figure><img class="person-img"
                                         src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
                                 </figure>
-                                <div>
-                                    Chris Smith<br>Maecenas commodo commodo felis
-                                    at placerat. Aliquam et magna sit amet nisi fermentum posuere.
+                                <div class="message-bubble tri-right left-in">
+                                    <div class="talktext">
+                                        <p> Chris Smith<br>Maecenas commodo commodo felis
+                                            at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="new-message">Type and press enter</div>
                             <div class="send-btn">Send</div>
                         </article>
-                        <article class="widget column2-article-bottom">
-                            <p>Dashboard: <strong>Users</strong></p>
-                            <table class="table">
+                        <article class="widget table column2-article-bottom">
+                            <p class="table-type">Dashboard: <strong>Users</strong></p>
+                            <table class="table-data">
                                 <tr class="table-header">
                                     <th>#</th>
                                     <th>First<br>Name</th>
@@ -181,9 +196,9 @@
                         </article>
                     </section>
                     <section class="column3">
-                        <article class="widget column3-article-top">
-                            <p>Dashboard: <strong>Users</strong></p>
-                            <table class="table">
+                        <article class="widget table column3-article-top">
+                            <p class="table-type">Dashboard: <strong>Users</strong></p>
+                            <table class="table-data">
                                 <tr class="table-header dark">
                                     <th>#</th>
                                     <th>First<br>Name</th>
@@ -210,8 +225,8 @@
                                 </tr>
                             </table>
                         </article>
-                        <article class="widget column3-article-middle">
-                            <table class="table">
+                        <article class="widget table column3-article-middle">
+                            <table class="table-data">
                                 <tr class="table-header">
                                     <th>#</th>
                                     <th>First<br>Name</th>
@@ -238,8 +253,8 @@
                                 </tr>
                             </table>
                         </article>
-                        <article class="widget column3-article-bottom">
-                            <table class="table">
+                        <article class="widget table column3-article-bottom">
+                            <table class="table-data">
                                 <tr class="table-header">
                                     <th>#</th>
                                     <th>First<br>Name</th>
@@ -291,12 +306,16 @@
                 </div>
                 <section class="row">
                     <article class="widget row-article-outerLeft">
+                        <p>Lorem ipsum</p>
                     </article>
                     <article class="widget row-article-innerLeft">
+                        <p>Lorem ipsum</p>
                     </article>
                     <article class="widget row-article-innerRight">
+                        <p>Lorem ipsum</p>
                     </article>
                     <article class="widget row-article-outerRight">
+                        <p>Lorem ipsum</p>
                     </article>
                 </section>
             </div>
