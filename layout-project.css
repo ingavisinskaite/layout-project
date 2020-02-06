@@ -28,17 +28,15 @@ body {
 
 .links {
     background-color: #423f3f;
-    flex: 7 0 95%;
+    height: 100%;
 }
 
 .container {
     flex: 12 0 75%;
-    display: flex;
-    flex-direction: column;
 }
 
 .navbar {
-    flex: 1 0 80px;
+    height: 80px;
 }
 
 .dashboard {
@@ -120,7 +118,6 @@ body {
 }
 
 .row article {
-    /* flex: 1 0 15%; */
     width: 25%;
     box-sizing: border-box;
 }
@@ -173,11 +170,13 @@ body {
     }
 
     .logo {
-        flex: 1 0 60px;
+        height: 80px;
+        width: 20%;
     }
 
     .links {
-        flex: 7 0 auto;
+        height: 80px;
+        width: 80%;
     }
 
     .columns {
