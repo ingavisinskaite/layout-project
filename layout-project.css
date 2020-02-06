@@ -28,28 +28,22 @@ body {
 
 .links {
     background-color: #423f3f;
-    flex: 7 0 95%;
+    height: 100%;
 }
 
 .container {
     flex: 12 0 75%;
-    display: flex;
-    flex-direction: column;
 }
 
 .navbar {
-    flex: 1 0 80px;
+    height: 80px;
 }
 
 .dashboard {
-    flex: 7 0 85%;
     background-color: #d3d3d3;
-    display: flex;
-    flex-direction: column;
 }
 
 .columns {
-    flex: 12 0 80%;
     display: flex;
 }
 
@@ -58,9 +52,14 @@ body {
     display: flex;
     flex-direction: column;
 }
+.column1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
 .column1 article {
-    flex: 1;
+    flex: 1 0 auto;
 }
 
 .column2 {
@@ -70,11 +69,11 @@ body {
 }
 
 .column2-article-top {
-    flex: 3;
+    flex: 3 0 auto;
 }
 
 .column2-article-bottom {
-    flex: 2;
+    flex: 2 0 auto;
 }
 
 .column3 {
@@ -84,16 +83,16 @@ body {
 }
 
 .column3-article-top {
-    flex: 5;
+    flex: 5 0 auto;
 }
 
 .column3-article-middle,
 .column3-article-bottom {
-    flex: 3;
+    flex: 3 0 auto;
 }
 
 .column3-innerSection {
-    flex: 7;
+    flex: 7 0 auto;
     display: flex;
     flex-wrap: wrap;
 }
@@ -115,12 +114,12 @@ body {
 }
 
 .row {
-    flex: 1 0 10%;
     display: flex;
 }
 
 .row article {
-    flex: 1 0 15%;
+    width: 25%;
+    box-sizing: border-box;
 }
 
 .row-article-innerRight {
@@ -144,11 +143,11 @@ body {
 
     .column3-article-middle,
     .column3-article-bottom {
-        flex: 5;
+        flex: 5 0 auto;
     }
 
     .column3-innerSection {
-        flex: 4;
+        flex: 4 0 auto;
     }
 
     .column3-innerSection article {
@@ -171,11 +170,13 @@ body {
     }
 
     .logo {
-        flex: 1 0 60px;
+        height: 80px;
+        width: 20%;
     }
 
     .links {
-        flex: 7;
+        height: 80px;
+        width: 80%;
     }
 
     .columns {
