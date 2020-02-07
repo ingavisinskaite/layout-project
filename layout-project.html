@@ -3,6 +3,7 @@
 
 <head>
     <title>Layout project</title>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="layout-project.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
@@ -112,49 +113,82 @@
                             </table>
                         </article>
                         <article class="widget chat column1-article-bottom">
-                            <p>Conversation: <strong>Users</strong></p>
-                            <div class="message">
-                                <figure><img class="person-img"
-                                        src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
-                                </figure>
-                                <div>David Scott<br>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas
-                                    commodo commodo felis
-                                    at placerat. Aliquam et magna sit amet nisi fermentum posuere.</div>
+                            <div class="chat-type">
+                                <p>Conversation: <strong>Users</strong></p>
                             </div>
-                            <div class="new-message">Type and press enter</div>
+                            <div class="messages users">
+                                <div class="message">
+                                    <figure><img class="person-img"
+                                            src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
+                                    </figure>
+                                    <div class="message-bubble tri-right left">
+                                        <p></p><strong>David Scott</strong><br>Maecenas commodo commodo felis
+                                        at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                    </div>
+                                </div>
+                                <div class="message">
+                                    <figure><img class="person-img"
+                                            src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
+                                    </figure>
+                                    <div class="message-bubble tri-right left">
+                                        <div class="talktext">
+                                            <p><strong>David Scott</strong><br>Maecenas commodo commodo felis
+                                                at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="text" placeholder="Type and press enter" class="new-message">
                             <div class="send-btn">Send</div>
                         </article>
                     </section>
                     <section class="column2">
                         <article class="widget chat column2-article-top">
-                            <p class="chat-type">Conversation: <strong>Software</strong></p>
-                            <div class="message">
-                                <figure><img class="person-img"
-                                        src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
-                                </figure>
-                                <div class="message-bubble tri-right left-in">
-                                    <div class="talktext">
-                                        <p> Chris Smith<br>Maecenas commodo commodo felis
-                                            at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                            <div class="chat-type">
+                                <p>Conversation: <strong>Software</strong></p>
+                            </div>
+                            <div class="messages software">
+                                <div class="message">
+                                    <figure><img class="person-img"
+                                            src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
+                                    </figure>
+                                    <div class="message-bubble tri-right left">
+                                        <div class="talktext">
+                                            <p><strong>David Scott</strong><br>Maecenas commodo commodo felis
+                                                at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="message">
-                                <figure><img class="person-img"
-                                        src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
-                                </figure>
-                                <div class="message-bubble tri-right left-in">
-                                    <div class="talktext">
-                                        <p> Chris Smith<br>Maecenas commodo commodo felis
-                                            at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                <div class="message">
+                                    <figure><img class="person-img"
+                                            src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
+                                    </figure>
+                                    <div class="message-bubble tri-right left">
+                                        <div class="talktext">
+                                            <p><strong>Chris Smith</strong><br>Maecenas commodo commodo felis
+                                                at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="message">
+                                    <div class="message-bubble tri-right right">
+                                        <div class="talktext">
+                                            <p><strong>Donald Trump</strong><br>Maecenas commodo commodo felis
+                                                at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                        </div>
+                                    </div>
+                                    <figure><img class="person-img"
+                                            src="https://media4.s-nbcnews.com/i/newscms/2019_28/2929131/190618-allan-smith-byline1860_e20f6bbeb1d9b2496dd6943f6a3da256.jpg">
+                                    </figure>
+                                </div>
                             </div>
-                            <div class="new-message">Type and press enter</div>
+                            <input type="text" placeholder="Type and press enter" class="new-message">
                             <div class="send-btn">Send</div>
                         </article>
                         <article class="widget table column2-article-bottom">
-                            <p class="table-type">Dashboard: <strong>Users</strong></p>
+                            <div class="table-type">
+                                <p>Dashboard: <strong>Users</strong></p>
+                            </div>
                             <table class="table-data">
                                 <tr class="table-header">
                                     <th>#</th>
@@ -197,9 +231,11 @@
                     </section>
                     <section class="column3">
                         <article class="widget table column3-article-top">
-                            <p class="table-type">Dashboard: <strong>Users</strong></p>
+                            <!-- <div class="table-type">
+                                <p>Dashboard: <strong>Users</strong></p>
+                            </div> -->
                             <table class="table-data">
-                                <tr class="table-header dark">
+                                <tr class="table-header">
                                     <th>#</th>
                                     <th>First<br>Name</th>
                                     <th>Last<br>Name</th>
@@ -255,7 +291,7 @@
                         </article>
                         <article class="widget table column3-article-bottom">
                             <table class="table-data">
-                                <tr class="table-header">
+                                <tr class="table-header dark">
                                     <th>#</th>
                                     <th>First<br>Name</th>
                                     <th>Last<br>Name</th>
@@ -283,7 +319,7 @@
                         </article>
                         <section class="column3-innerSection">
                             <article class="widget column3-innerSection-article-topLeft">
-                                <ol>
+                                <ol class="features">
                                     <li>Upgrade</li>
                                     <li>Finish</li>
                                 </ol>
@@ -294,12 +330,16 @@
                             </article>
                             <article class="widget column3-innerSection-article-bottomLeft">
                                 <h2>Clean</h2>
-                                <p>Simple</p>
-                                <p>Responsive</p>
+                                <div>
+                                    <p>Simple</p>
+                                    <p>Responsive</p>
+                                </div>
                             </article>
                             <article class="widget column3-innerSection-article-bottomRight">
-                                <p>Total: 24 467</p>
-                                <p>New: 456</p>
+                                <div class="users-stats">
+                                    <p>Total: 24 467</p>
+                                    <p>New: 456</p>
+                                </div>
                             </article>
                         </section>
                     </section>
