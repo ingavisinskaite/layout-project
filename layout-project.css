@@ -27,7 +27,6 @@ body {
 .table-data {
   width: 100%;
   height: 100%;
-  border-spacing: 0;
   border-collapse: collapse;
 }
 
@@ -35,6 +34,7 @@ body {
   margin: 5px;
   display: flex;
   justify-content: space-between;
+  padding: 0 15px;
 }
 
 .table-header {
@@ -101,7 +101,7 @@ tr:hover:not(.table-header) {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 15px;
 }
 
 .new-message {
@@ -165,21 +165,18 @@ tr:hover:not(.table-header) {
   cursor: pointer;
 }
 
-.settings-icon {
+.settings {
+  display: flex;
+  align-items: center;
+}
+
+.settings::before {
+  content: "";
   width: 36px;
   height: 36px;
   background-image: url(icon-spritesheet.png);
   background-repeat: no-repeat;
-  background-position: -335px -130px;
-}
-
-.arrow {
-  border: solid #bbbbbb;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(45deg);
-  margin-left: 7px;
+  background-position: -338px -132px;
 }
 
 /*sidenav*/
@@ -337,48 +334,29 @@ tr:hover:not(.table-header) {
 .column3-innerSection article {
   flex: 1 0 30%;
   max-height: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
 }
 
 .column3-innerSection-article-topLeft {
-  background: url("https://thecontextofthings.com/wp-content/uploads/2017/02/easy-work.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://thecontextofthings.com/wp-content/uploads/2017/02/easy-work.png");
 }
-
-.features {
-  width: 150px;
-  background-color: rgba(255, 255, 255, 0.6);
-  margin: 20px auto;
-  border-radius: 5px;
-}
-
 .column3-innerSection-article-topRight {
-  background: url("https://vortini.com/wp-content/uploads/2018/01/sales-growth-conversion-rates.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://vortini.com/wp-content/uploads/2018/01/sales-growth-conversion-rates.png");
 }
 
 .column3-innerSection-article-bottomLeft {
-  background: url("https://designadvisor.net/wp-content/uploads/2018/10/What-is-responsive-web-designadvisor.net_.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://designadvisor.net/wp-content/uploads/2018/10/What-is-responsive-web-designadvisor.net_.gif");
 }
 
 .column3-innerSection-article-bottomRight {
-  background: url("https://www.zend.com/sites/zend/files/image/2019-11/db3eb9bc-01a0-11ea-9f43-008cfa043684_0.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.users-stats {
-  background-color: rgba(255, 255, 255, 0.6);
-  width: 150px;
-  margin: auto;
-  border-radius: 5px;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("https://www.zend.com/sites/zend/files/image/2019-11/db3eb9bc-01a0-11ea-9f43-008cfa043684_0.jpg");
 }
 
 .row {
@@ -390,12 +368,20 @@ tr:hover:not(.table-header) {
   box-sizing: border-box;
 }
 
+.row-article-outerLeft {
+  background-image: linear-gradient(to right, #8baaaa, #a8a5a5);
+}
+
+.row-article-innerLeft {
+  background-image: linear-gradient(to right, #a8a5a5, #736b6b);
+}
+
 .row-article-innerRight {
-  background-color: #ff6347;
+  background-image: linear-gradient(to right, #736b6b, #6f6464);
 }
 
 .row-article-outerRight {
-  background-color: #6a6b81;
+  background-image: linear-gradient(to right, #6f6464, #ae8b9c);
 }
 
 @media screen and (max-width: 1000px) {
