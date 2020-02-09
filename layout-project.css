@@ -1,351 +1,358 @@
 body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
 }
 
 .homepage {
-  display: flex;
+    display: flex;
 }
 
 /*widget*/
 
 .widget {
-  border-radius: 5px;
-  background-color: #ffffff;
-  margin: 7px 10px;
-  text-align: center;
-  box-shadow: 0px 0px 13px 1px rgb(153, 153, 153);
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin: 7px 10px;
+    text-align: center;
+    box-shadow: 0px 0px 13px 1px rgb(153, 153, 153);
 }
 
 .widget:hover {
-  box-shadow: 0px 0px 5px 4px #e8e8e8;
-  transition: box-shadow ease-in-out 0.2s;
+    box-shadow: 0px 0px 5px 4px #e8e8e8;
+    transition: box-shadow ease-in-out 0.2s;
 }
 
 /*table*/
 
 .table-data {
-  width: 100%;
-  height: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
 }
 
 .table-type {
-  margin: 5px;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    height: 50px;
+}
+
+.table-with-type {
+    height: calc(100% - 50px);
 }
 
 .table-header {
-  height: 50px;
+    height: 50px;
 }
 
 td {
-  padding: 5px;
+    padding: 5px;
 }
 
 tr {
-  border: 1px solid #d8d7db;
+    border-top: 1px solid #d8d7db;
+    border-bottom: 1px solid #d8d7db;
 }
 
 tr:hover:not(.table-header) {
-  background-color: rgba(216, 215, 219, 0.2);
+    background-color: rgba(216, 215, 219, 0.2);
 }
 
 .dark {
-  background-color: #423f3f;
-  color: #ffffff;
-  border: none;
+    background-color: #423f3f;
+    color: #ffffff;
+    border: none;
 }
 
 /*chat*/
 
 .chat {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .messages {
-  overflow-y: scroll;
-  width: 90%;
-  margin: 0 auto;
+    overflow-y: scroll;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .users {
-  max-height: 170px;
+    max-height: 170px;
 }
 
 .software {
-  max-height: 320px;
+    max-height: 320px;
 }
 
 .person-img {
-  vertical-align: middle;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .message {
-  display: flex;
-  margin: 10px;
-  justify-content: center;
-  align-items: flex-start;
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .person.left {
-    margin: 0 30px 0 10px;
+    margin: 0 30px 0 0;
 }
 
 .person.right {
-    margin: 0 10px 0 30px;
+    margin: 0 0 0 30px;
 }
 
 .chat-type {
-  border: 1px solid #d8d7db;
-  height: 50px;
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
+    border: 1px solid #d8d7db;
+    height: 50px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
 }
 
 .new-message {
-  border: 1px solid #d8d7db;
-  width: 90%;
-  height: 60px;
-  margin: 10px auto;
-  outline: none;
-  text-align: center;
-  border-radius: 2px;
+    border: 1px solid #d8d7db;
+    width: 90%;
+    height: 60px;
+    margin: 10px auto;
+    outline: none;
+    text-align: center;
+    border-radius: 2px;
 }
 
 .new-message::placeholder {
-  color: #d8d7db;
-  opacity: 1;
+    color: #d8d7db;
+    opacity: 1;
 }
 
 .message-bubble {
-  display: inline-block;
-  position: relative;
-  height: auto;
-  background-color: #d3d3d3;
-  border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    height: auto;
+    background-color: #d3d3d3;
+    border-radius: 5px;
 }
 
 .tri-right.left:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -20px;
-  right: auto;
-  top: 10px;
-  bottom: auto;
-  border: 12px solid;
-  border-color: #d3d3d3 #d3d3d3 transparent transparent;
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -20px;
+    right: auto;
+    top: 10px;
+    bottom: auto;
+    border: 12px solid;
+    border-color: #d3d3d3 #d3d3d3 transparent transparent;
 }
 
 .tri-right.right:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -20px;
-  top: 10px;
-  bottom: auto;
-  border: 12px solid;
-  border-color: transparent transparent #d3d3d3 #d3d3d3;
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: auto;
+    right: -20px;
+    top: 10px;
+    bottom: auto;
+    border: 12px solid;
+    border-color: transparent transparent #d3d3d3 #d3d3d3;
 }
 
 .send-btn {
-  width: 90%;
-  height: 30px;
-  color: #d8d7db;
-  border: 1px solid #d8d7db;
-  margin: 0 auto 10px auto;
+    width: 90%;
+    height: 30px;
+    color: #d8d7db;
+    border: 1px solid #d8d7db;
+    margin: 0 auto 10px auto;
 }
 
 .send-btn:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .settings {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .settings::before {
-  content: "";
-  width: 36px;
-  height: 36px;
-  background-image: url(icon-spritesheet.png);
-  background-repeat: no-repeat;
-  background-position: -338px -132px;
+    content: "";
+    width: 36px;
+    height: 36px;
+    background-image: url(icon-spritesheet.png);
+    background-repeat: no-repeat;
+    background-position: -338px -132px;
 }
 
 /*sidenav*/
 
 .sidenav {
-  width: 200px;
-  display: flex;
-  flex-direction: column;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
 .logo {
-  background-color: #2c2a2a;
-  flex: 1 0 80px;
+    background-color: #2c2a2a;
+    flex: 1 0 80px;
 }
 
 .links {
-  background-color: #423f3f;
-  height: 100%;
+    background-color: #423f3f;
+    height: 100%;
 }
 
 /*top-menu*/
 
 .navbar {
-  height: 80px;
-  display: flex;
-  align-items: center;
+    height: 80px;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-dropdowns-container {
-  display: flex;
+    display: flex;
 }
 
 .navbar-dropdown {
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-dropdown::before {
-  content: "";
-  width: 36px;
-  height: 36px;
-  background-image: url(icon-spritesheet.png);
-  background-repeat: no-repeat;
+    content: "";
+    width: 36px;
+    height: 36px;
+    background-image: url(icon-spritesheet.png);
+    background-repeat: no-repeat;
 }
 
 .navbar-dashboards::before {
-  background-position: -170px -168px;
+    background-position: -170px -168px;
 }
 
 .navbar-issues::before {
-  background-position: -238px -168px;
+    background-position: -238px -168px;
 }
 
 .navbar-projects::before {
-  background-position: -407px -271px;
+    background-position: -407px -271px;
 }
 
 .arrow-after::after {
-  content: "";
-  border: solid #bbbbbb;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(45deg);
-  margin-left: 7px;
+    content: "";
+    border: solid #bbbbbb;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-left: 7px;
 }
 
 .navbar-search-profile-container {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
 }
 
 .navbar-search {
-  border-radius: 20px;
-  border: solid 1px #cccccc;
-  height: 24px;
-  text-indent: 10px;
-  margin-right: 20px;
-  outline: none;
+    border-radius: 20px;
+    border: solid 1px #cccccc;
+    height: 24px;
+    text-indent: 10px;
+    margin-right: 20px;
+    outline: none;
 }
 
 .navbar-profile {
-  height: 32px;
-  width: 32px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  background-image: url("https://media4.s-nbcnews.com/i/newscms/2019_28/2929131/190618-allan-smith-byline1860_e20f6bbeb1d9b2496dd6943f6a3da256.jpg");
-  background-size: cover;
-  background-position: center;
+    height: 32px;
+    width: 32px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    background-image: url("https://media4.s-nbcnews.com/i/newscms/2019_28/2929131/190618-allan-smith-byline1860_e20f6bbeb1d9b2496dd6943f6a3da256.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 /*dashboard*/
 
 .container {
-  flex: 12 0 75%;
+    flex: 12 0 75%;
 }
 
 .dashboard {
-  background-color: #d3d3d3;
+    background-color: #d3d3d3;
 }
 
 .columns {
-  display: flex;
+    display: flex;
 }
 
 .column1 {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .column1 article {
-  flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 .column2 {
-  flex: 1;
+    flex: 1;
 }
 
 .column2-article-top {
-  flex: 3 0 auto;
+    flex: 3 0 auto;
 }
 
 .column2-article-bottom {
-  flex: 2 0 auto;
-  display: flex;
-  flex-direction: column;
+    flex: 2 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .column3 {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .column3-article-top {
-  flex: 5 0 auto;
+    flex: 5 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .column3-article-middle,
 .column3-article-bottom {
-  flex: 3 0 auto;
+    flex: 3 0 auto;
 }
 
 .column3-innerSection {
-  flex: 7 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+    flex: 7 0 auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .column3-innerSection article {
-  flex: 1 0 30%;
-  max-height: 100px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: white;
+    flex: 1 0 30%;
+    max-height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
 }
 
 .column3-innerSection p {
@@ -357,22 +364,23 @@ tr:hover:not(.table-header) {
 }
 
 .column3-innerSection-article-topLeft {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://thecontextofthings.com/wp-content/uploads/2017/02/easy-work.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://thecontextofthings.com/wp-content/uploads/2017/02/easy-work.png");
 }
+
 .column3-innerSection-article-topRight {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://vortini.com/wp-content/uploads/2018/01/sales-growth-conversion-rates.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://vortini.com/wp-content/uploads/2018/01/sales-growth-conversion-rates.png");
 }
 
 .column3-innerSection-article-bottomLeft {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://designadvisor.net/wp-content/uploads/2018/10/What-is-responsive-web-designadvisor.net_.gif");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://designadvisor.net/wp-content/uploads/2018/10/What-is-responsive-web-designadvisor.net_.gif");
 }
 
 .column3-innerSection-article-bottomRight {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://www.zend.com/sites/zend/files/image/2019-11/db3eb9bc-01a0-11ea-9f43-008cfa043684_0.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://www.zend.com/sites/zend/files/image/2019-11/db3eb9bc-01a0-11ea-9f43-008cfa043684_0.jpg");
 }
 
 .users-stats {
@@ -383,118 +391,123 @@ tr:hover:not(.table-header) {
 }
 
 .row {
-  display: flex;
+    display: flex;
 }
 
 .row article {
-  width: 25%;
-  box-sizing: border-box;
+    width: 25%;
+    box-sizing: border-box;
 }
 
 .row-article-outerLeft {
-  background-image: linear-gradient(to right, #8baaaa, #a8a5a5);
+    background-image: linear-gradient(to right, #8baaaa, #a8a5a5);
 }
 
 .row-article-innerLeft {
-  background-image: linear-gradient(to right, #a8a5a5, #736b6b);
+    background-image: linear-gradient(to right, #a8a5a5, #736b6b);
 }
 
 .row-article-innerRight {
-  background-image: linear-gradient(to right, #736b6b, #6f6464);
+    background-image: linear-gradient(to right, #736b6b, #6f6464);
 }
 
 .row-article-outerRight {
-  background-image: linear-gradient(to right, #6f6464, #ae8b9c);
+    background-image: linear-gradient(to right, #6f6464, #ae8b9c);
 }
 
 @media screen and (max-width: 1000px) {
-  .columns {
-    flex-wrap: wrap;
-  }
+    .columns {
+        flex-wrap: wrap;
+    }
 
-  .column1,
-  .column2,
-  .column3 {
-    flex: 1 0 51%;
-  }
+    .column1,
+    .column2,
+    .column3 {
+        flex: 1 0 51%;
+    }
 
-  .column3-article-middle,
-  .column3-article-bottom {
-    flex: 5 0 auto;
-  }
+    .column3-article-middle,
+    .column3-article-bottom {
+        flex: 5 0 auto;
+    }
 
-  .column3-innerSection {
-    flex: 4 0 auto;
-  }
+    .column3-innerSection {
+        flex: 4 0 auto;
+    }
 
-  .column3-innerSection article {
-    flex: 1 0 20%;
-  }
+    .column3-innerSection article {
+        flex: 1 0 20%;
+    }
 }
 
 @media screen and (max-width: 800px) {
-  .homepage {
-    flex-direction: column;
-  }
+    .homepage {
+        flex-direction: column;
+    }
 
-  .sidenav {
-    flex-direction: row;
-    width: 100%;
-  }
+    .sidenav {
+        flex-direction: row;
+        width: 100%;
+    }
 
-  .logo {
-    height: 80px;
-    width: 20%;
-  }
+    .logo {
+        height: 80px;
+        width: 20%;
+    }
 
-  .links {
-    height: 80px;
-    width: 80%;
-  }
+    .links {
+        height: 80px;
+        width: 80%;
+    }
 
-  .columns {
-    flex-wrap: wrap;
-  }
+    .navbar {
+        display: none;
+    }
 
-  .column3 {
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
+    .columns {
+        flex-wrap: wrap;
+    }
 
-  .column3-article-top,
-  .column3-article-middle {
-    flex: 1 0 45%;
-  }
+    .column3 {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
 
-  .column3-article-bottom {
-    flex: 1 0 51%;
-  }
+    .column3-article-top,
+    .column3-article-middle {
+        flex: 1 0 45%;
+    }
 
-  .column3-innerSection {
-    flex: 1 0 45%;
-    flex-wrap: wrap;
-  }
+    .column3-article-bottom {
+        flex: 1 0 51%;
+    }
 
-  .column3-innerSection article {
-    flex: 1 0 33%;
-  }
+    .column3-innerSection {
+        flex: 1 0 45%;
+        flex-wrap: wrap;
+    }
+
+    .column3-innerSection article {
+        flex: 1 0 33%;
+    }
 }
 
 @media screen and (max-width: 550px) {
-  .column1,
-  .column2 {
-    flex: 1 0 51%;
-  }
 
-  .column3 {
-    flex: 1 0 51%;
-  }
+    .column1,
+    .column2 {
+        flex: 1 0 51%;
+    }
 
-  .row {
-    flex-wrap: wrap;
-  }
+    .column3 {
+        flex: 1 0 51%;
+    }
 
-  .row article {
-    flex: 1 0 30%;
-  }
+    .row {
+        flex-wrap: wrap;
+    }
+
+    .row article {
+        flex: 1 0 30%;
+    }
 }
