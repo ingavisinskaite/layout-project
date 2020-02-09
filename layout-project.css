@@ -172,10 +172,16 @@ tr:hover:not(.table-header) {
     color: #d8d7db;
     border: 1px solid #d8d7db;
     margin: 0 auto 10px auto;
+    padding-top: 10px;
 }
 
 .send-btn:hover {
     cursor: pointer;
+}
+
+.send-icon {
+    width: 18px;
+    vertical-align: bottom;
 }
 
 .settings {
