@@ -429,6 +429,28 @@ tr:hover:not(.table-header) {
     background-image: linear-gradient(to right, #6f6464, #ae8b9c);
 }
 
+/*scrollbar*/
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #423f3f;
+}
+
 @media screen and (max-width: 1000px) {
     .columns {
         flex-wrap: wrap;
