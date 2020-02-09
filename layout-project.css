@@ -365,10 +365,6 @@ tr:hover:not(.table-header) {
     margin: 0;
 }
 
-.column3-innerSection h2 {
-    margin: 8px;
-}
-
 .column3-innerSection-article-topLeft {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("https://thecontextofthings.com/wp-content/uploads/2017/02/easy-work.png");
@@ -379,9 +375,21 @@ tr:hover:not(.table-header) {
         url("https://vortini.com/wp-content/uploads/2018/01/sales-growth-conversion-rates.png");
 }
 
+.sales-header {
+    width: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 10px auto;
+}
+
 .column3-innerSection-article-bottomLeft {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("https://designadvisor.net/wp-content/uploads/2018/10/What-is-responsive-web-designadvisor.net_.gif");
+}
+
+.features-header {
+    margin: 8px;
 }
 
 .column3-innerSection-article-bottomRight {
