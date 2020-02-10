@@ -3,6 +3,7 @@
 
 <head>
     <title>Layout project</title>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="layout-project.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
@@ -14,127 +15,348 @@
             <nav class="links"></nav>
         </aside>
         <div class="container">
-            <nav class="navbar"></nav>
+            <nav class="navbar">
+                <div class="navbar-dropdowns-container">
+                    <div class="navbar-dropdown navbar-issues arrow-after">Issues History</div>
+                    <div class="navbar-dropdown navbar-dashboards arrow-after">Dashboards</div>
+                    <div class="navbar-dropdown navbar-projects arrow-after">Projects</div>
+                </div>
+                <div class="navbar-search-profile-container">
+                    <input placeholder="Search.." class="navbar-search" />
+                    <div class="navbar-profile"></div>
+                    <div class="arrow-after"></div>
+                </div>
+            </nav>
             <div class="dashboard">
                 <div class="columns">
                     <section class="column1">
-                        <article class="post column1-article-top">
-                            <h2>Lorem ipsum</h2>
-                            <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                                at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                                Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. Duis nec nulla
-                                massa. Nunc id sodales mi. Donec neque nisl, ultricies malesuada justo vitae, tristique
-                                fermentum sapien. Vestibulum tempus ante vitae laoreet ullamcorper. Nulla ac semper
-                                orci, sit amet ultrices magna. Ut lectus turpis, blandit ac volutpat quis, ornare sed
-                                est. Nunc et porta enim, vel tempus dolor. Nunc efficitur, lacus ac congue lobortis,
-                                orci leo bibendum quam, ac vehicula tellus nisi sit amet leo.</p>
+                        <article class="widget table column1-article-top">
+                            <table class="table-data">
+                                <tr class="table-header dark">
+                                    <th>#</th>
+                                    <th>First<br>Name</th>
+                                    <th>Last<br>Name</th>
+                                    <th>Username</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </table>
                         </article>
-                        <article class="post column1-article-bottom">
-                            <h2>Lorem ipsum</h2>
-                            <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                                at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                                Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. Duis nec nulla
-                                massa. Nunc id sodales mi. Donec neque nisl, ultricies malesuada justo vitae, tristique
-                                fermentum sapien. Vestibulum tempus ante vitae laoreet ullamcorper. Nulla ac semper
-                                orci, sit amet ultrices magna. Ut lectus turpis, blandit ac volutpat quis, ornare sed
-                                est. Nunc et porta enim, vel tempus dolor. Nunc efficitur, lacus ac congue lobortis,
-                                orci leo bibendum quam, ac vehicula tellus nisi sit amet leo.</p>
+                        <article class="widget chat column1-article-bottom">
+                            <div class="type">
+                                <p>Conversation: <strong>Users</strong></p>
+                                <div class="settings arrow-after"></div>
+                            </div>
+                            <div class="messages users">
+                                <div class="message">
+                                    <figure class="person left"><img class="person-img"
+                                            src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
+                                    </figure>
+                                    <div class="message-bubble tri-right left">
+                                        <p></p><strong>David Scott</strong><br>Maecenas commodo commodo felis
+                                        at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                    </div>
+                                </div>
+                                <div class="message">
+                                    <figure class="person left"><img class="person-img"
+                                            src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
+                                    </figure>
+                                    <div class="message-bubble tri-right left">
+                                        <div class="talktext">
+                                            <p><strong>David Scott</strong><br>Maecenas commodo commodo felis
+                                                at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="text" placeholder="Type and press enter" class="new-message">
+                            <div class="send-btn"><img src="send.svg" class="send-icon"> Send</div>
                         </article>
                     </section>
                     <section class="column2">
-                        <article class="post column2-article-top">
-                            <h2>Lorem ipsum</h2>
-                            <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                                at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                                Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. Duis nec nulla
-                                massa. Nunc id sodales mi. Donec neque nisl, ultricies malesuada justo vitae, tristique
-                                fermentum sapien. Vestibulum tempus ante vitae laoreet ullamcorper. Nulla ac semper
-                                orci, sit amet ultrices magna. Ut lectus turpis, blandit ac volutpat quis, ornare sed
-                                est. Nunc et porta enim, vel tempus dolor. Nunc efficitur, lacus ac congue lobortis,
-                                orci leo bibendum quam, ac vehicula tellus nisi sit amet leo.</p>
+                        <article class="widget chat column2-article-top">
+                            <div class="type">
+                                <p>Conversation: <strong>Software</strong></p>
+                                <div class="settings arrow-after"></div>
+                            </div>
+                            <div class="messages software">
+                                <div class="message">
+                                    <figure class="person left"><img class="person-img"
+                                            src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
+                                    </figure>
+                                    <div class="message-bubble tri-right left">
+                                        <div class="talktext">
+                                            <p><strong>David Scott</strong><br>Maecenas commodo commodo felis
+                                                at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="message">
+                                    <figure class="person left"><img class="person-img"
+                                            src="https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg">
+                                    </figure>
+                                    <div class="message-bubble tri-right left">
+                                        <div class="talktext">
+                                            <p><strong>Chris Smith</strong><br>Maecenas commodo commodo felis
+                                                at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="message">
+                                    <div class="message-bubble tri-right right">
+                                        <div class="talktext">
+                                            <p><strong>Donald Trump</strong><br>Maecenas commodo commodo felis
+                                                at placerat. Aliquam et magna sit amet nisi fermentum posuere.</p>
+                                        </div>
+                                    </div>
+                                    <figure class="person right"><img class="person-img"
+                                            src="https://media4.s-nbcnews.com/i/newscms/2019_28/2929131/190618-allan-smith-byline1860_e20f6bbeb1d9b2496dd6943f6a3da256.jpg">
+                                    </figure>
+                                </div>
+                            </div>
+                            <input type="text" placeholder="Type and press enter" class="new-message">
+                            <div class="send-btn"><img src="send.svg" class="send-icon"> Send</div>
                         </article>
-                        <article class="post column2-article-bottom">
-                            <h2>Lorem ipsum</h2>
-                            <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                                at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                                Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. Duis nec nulla
-                                massa. Nunc id sodales mi. Donec neque nisl, ultricies malesuada justo vitae, tristique
-                                fermentum sapien. Vestibulum tempus ante vitae laoreet ullamcorper. Nulla ac semper
-                                orci, sit amet ultrices magna. Ut lectus turpis, blandit ac volutpat quis, ornare sed
-                                est. Nunc et porta enim, vel tempus dolor. Nunc efficitur, lacus ac congue lobortis,
-                                orci leo bibendum quam, ac vehicula tellus nisi sit amet leo.</p>
+                        <article class="widget table column2-article-bottom">
+                            <div class="type">
+                                <p>Dashboard: <strong>Users</strong></p>
+                                <div class="settings arrow-after"></div>
+                            </div>
+                            <table class="table-data table-with-type">
+                                <tr class="table-header">
+                                    <th>#</th>
+                                    <th>First<br>Name</th>
+                                    <th>Last<br>Name</th>
+                                    <th>Username</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </table>
                         </article>
                     </section>
                     <section class="column3">
-                        <article class="post column3-article-top">
-                            <h2>Lorem ipsum</h2>
-                            <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                                at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                                Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. Duis nec nulla
-                                massa. Nunc id sodales mi. Donec neque nisl, ultricies malesuada justo vitae, tristique
-                                fermentum sapien. Vestibulum tempus ante vitae laoreet ullamcorper. Nulla ac semper
-                                orci, sit amet ultrices magna. Ut lectus turpis, blandit ac volutpat quis, ornare sed
-                                est. Nunc et porta enim, vel tempus dolor. Nunc efficitur, lacus ac congue lobortis,
-                                orci leo bibendum quam, ac vehicula tellus nisi sit amet leo.</p>
+                        <article class="widget table column3-article-top">
+                            <div class="type">
+                                <p>Dashboard: <strong>Users</strong></p>
+                            </div>
+                            <table class="table-data table-with-type">
+                                <tr class="table-header">
+                                    <th>#</th>
+                                    <th>First<br>Name</th>
+                                    <th>Last<br>Name</th>
+                                    <th>Username</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </table>
                         </article>
-                        <article class="post column3-article-middle">
-                            <h2>Lorem ipsum</h2>
-                            <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                                at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                                Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. Duis nec nulla
-                                massa. Nunc id sodales mi. Donec neque nisl, ultricies malesuada justo vitae, tristique
-                                fermentum sapien. Vestibulum tempus ante vitae laoreet ullamcorper. Nulla ac semper
-                                orci, sit amet ultrices magna. Ut lectus turpis, blandit ac volutpat quis, ornare sed
-                                est. Nunc et porta enim, vel tempus dolor. Nunc efficitur, lacus ac congue lobortis,
-                                orci leo bibendum quam, ac vehicula tellus nisi sit amet leo.</p>
+                        <article class="widget table column3-article-middle">
+                            <table class="table-data">
+                                <tr class="table-header">
+                                    <th>#</th>
+                                    <th>First<br>Name</th>
+                                    <th>Last<br>Name</th>
+                                    <th>Username</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </table>
                         </article>
-                        <article class="post column3-article-bottom">
-                            <h2>Lorem ipsum</h2>
-                            <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                                at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                                Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. Duis nec nulla
-                                massa. Nunc id sodales mi. Donec neque nisl, ultricies malesuada justo vitae, tristique
-                                fermentum sapien. Vestibulum tempus ante vitae laoreet ullamcorper. Nulla ac semper
-                                orci, sit amet ultrices magna. Ut lectus turpis, blandit ac volutpat quis, ornare sed
-                                est. Nunc et porta enim, vel tempus dolor. Nunc efficitur, lacus ac congue lobortis,
-                                orci leo bibendum quam, ac vehicula tellus nisi sit amet leo.</p>
+                        <article class="widget table column3-article-bottom">
+                            <table class="table-data">
+                                <tr class="table-header dark">
+                                    <th>#</th>
+                                    <th>First<br>Name</th>
+                                    <th>Last<br>Name</th>
+                                    <th>Username</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </table>
                         </article>
                         <section class="column3-innerSection">
-                            <article class="post column3-innerSection-article-topLeft">
-                                <h2>Lorem ipsum</h2>
+                            <article class="widget features column3-innerSection-article-topLeft">
+                                <ol class="features-list">
+                                    <li>Upgrade</li>
+                                    <li>Finish</li>
+                                </ol>
                             </article>
-                            <article class="post column3-innerSection-article-topRight">
-                                <h2>Lorem ipsum</h2>
+                            <article class="widget sales column3-innerSection-article-topRight">
+                                <h2 class="sales-header" title="Sales Growth">Sales Growth</h2>
+                                <p class="view-sales-btn">View Report</p>
                             </article>
-                            <article class="post column3-innerSection-article-bottomLeft">
-                                <h2>Lorem ipsum</h2>
+                            <article class="widget features column3-innerSection-article-bottomLeft">
+                                <h2 class="features-header">Clean</h2>
+                                <p>Simple</p>
+                                <p>Responsive</p>
                             </article>
-                            <article class="post column3-innerSection-article-bottomRight">
-                                <h2>Lorem ipsum</h2>
+                            <article class="widget users column3-innerSection-article-bottomRight">
+                                <div class="users-stats">
+                                    <p>Total: 24 467</p>
+                                    <p>New: 456</p>
+                                </div>
                             </article>
                         </section>
                     </section>
                 </div>
                 <section class="row">
-                    <article class="post row-article-outerLeft">
-                        <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                            at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                            Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. </p>
+                    <article class="widget row-article-outerLeft">
+                        <p>Lorem ipsum</p>
                     </article>
-                    <article class="post row-article-innerLeft">
-                        <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                            at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                            Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. </p>
+                    <article class="widget row-article-innerLeft">
+                        <p>Lorem ipsum</p>
                     </article>
-                    <article class="post row-article-innerRight">
-                        <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                            at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                            Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. </p>
+                    <article class="widget row-article-innerRight">
+                        <p>Lorem ipsum</p>
                     </article>
-                    <article class="post row-article-outerRight">
-                        <p>Donec ultrices nisi est, quis viverra nibh sagittis nec. Maecenas commodo commodo felis
-                            at placerat. Aliquam et magna sit amet nisi fermentum posuere. Vivamus eu libero metus.
-                            Fusce quis turpis aliquet, venenatis lacus sodales, efficitur felis. </p>
+                    <article class="widget row-article-outerRight">
+                        <p>Lorem ipsum</p>
                     </article>
                 </section>
             </div>
