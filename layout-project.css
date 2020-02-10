@@ -100,6 +100,7 @@ tr:hover:not(.table-header) {
 .message-bubble {
   display: inline-block;
   position: relative;
+  z-index: 1;
   height: auto;
   background-color: #d3d3d3;
   border-radius: 5px;
@@ -189,6 +190,8 @@ tr:hover:not(.table-header) {
   width: 200px;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  z-index: 2;
 }
 
 .logo {
@@ -198,15 +201,20 @@ tr:hover:not(.table-header) {
 
 .links {
   background-color: #423f3f;
-  height: calc(100% - 80px);
+  height: 100%;
 }
 
 /*top-menu*/
 
 .navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid grey;
   height: 80px;
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .navbar-dropdowns-container {
@@ -419,22 +427,6 @@ tr:hover:not(.table-header) {
   max-height: 100px;
 }
 
-.row-article-outerLeft {
-  background-image: linear-gradient(to right, #8baaaa, #a8a5a5);
-}
-
-.row-article-innerLeft {
-  background-image: linear-gradient(to right, #a8a5a5, #736b6b);
-}
-
-.row-article-innerRight {
-  background-image: linear-gradient(to right, #736b6b, #6f6464);
-}
-
-.row-article-outerRight {
-  background-image: linear-gradient(to right, #6f6464, #ae8b9c);
-}
-
 /*scrollbar*/
 
 ::-webkit-scrollbar-track {
@@ -505,6 +497,7 @@ tr:hover:not(.table-header) {
   .sidenav {
     flex-direction: row;
     width: 100%;
+    top: 0;
   }
 
   .logo {
