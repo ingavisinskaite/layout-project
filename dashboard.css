@@ -83,11 +83,11 @@ tr:hover:not(.table-header) {
 }
 
 .messages.users {
-  max-height: 170px;
+  max-height: 284px;
 }
 
 .messages.software {
-  max-height: 320px;
+  max-height: 390px;
 }
 
 .message {
@@ -100,6 +100,7 @@ tr:hover:not(.table-header) {
 .message-bubble {
   display: inline-block;
   position: relative;
+  z-index: 1;
   height: auto;
   background-color: #d3d3d3;
   border-radius: 5px;
@@ -186,27 +187,190 @@ tr:hover:not(.table-header) {
 /*sidenav*/
 
 .sidenav {
-  width: 200px;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  z-index: 2;
 }
 
 .logo {
+  display: flex;
+  align-items: center;
   background-color: #2c2a2a;
   flex: 1 0 80px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.logo-img {
+  width: 50px;
+  margin-left: 10px;
+  margin-right: -22px;
 }
 
 .links {
   background-color: #423f3f;
-  height: calc(100% - 80px);
+  height: 100%;
+  color: #ffffff;
+}
+
+.links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.link,
+.link-with-icon {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.link:hover,
+.link-with-icon:hover:not(.disabled-item) {
+  background-color: #343232;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.link {
+  height: 36px;
+  padding-left: 8px;
+}
+
+.link-with-icon::before {
+  content: "";
+  width: 36px;
+  height: 36px;
+  background-image: url(icon-spritesheet.png);
+  background-repeat: no-repeat;
+}
+
+.link a,
+.link-with-icon a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.documentation::before {
+  background-position: -270px -204px;
+}
+
+.home::before {
+  background-position: -236px -204px;
+}
+
+.profile::before {
+  background-position: -66px 0;
+}
+
+.messaging::before {
+  background-position: -304px -272px;
+}
+
+.calendar::before {
+  background-position: -170px -374px;
+}
+
+.gallery::before {
+  background-position: -306px -36px;
+}
+
+.layout::before {
+  background-position: -68px -172px;
+}
+
+.icons::before {
+  background-position: -238px -34px;
+}
+
+.typography::before {
+  background-position: -338px -340px;
+}
+
+.pages::before {
+  background-position: -272px -240px;
+}
+
+.disabled-item a {
+  color: #d3d3d3;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+  margin-left: 18px;
+  height: 36px;
+}
+
+.solar-system {
+  margin-left: 16px;
+}
+
+.planet a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.planet {
+  display: flex;
+  align-items: center;
+  height: 36px;
+}
+
+.planet::before {
+  content: "";
+  height: 10px;
+  border-radius: 50%;
+  width: 10px;
+  margin-right: 5px;
+}
+
+.earth::before {
+  border: 3px solid #61d474;
+}
+
+.mars::before {
+  border: 3px solid #d03535;
+}
+
+.mercury::before {
+  border: 3px solid #d3d3d3;
+}
+
+.jupiter::before {
+  border: 3px solid #6ccfff;
+}
+
+.arrow-right::after {
+  content: "";
+  border: solid #bbbbbb;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  margin-left: 20px;
+  right: 15px;
+  position: absolute;
+  cursor: pointer;
+}
+
+hr {
+  width: 85%;
 }
 
 /*top-menu*/
 
 .navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid grey;
   height: 80px;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 200px);
+  z-index: 2;
 }
 
 .navbar-dropdowns-container {
@@ -239,7 +403,7 @@ tr:hover:not(.table-header) {
   background-position: -407px -271px;
 }
 
-.arrow-after::after {
+.arrow-bottom::after {
   content: "";
   border: solid #bbbbbb;
   border-width: 0 3px 3px 0;
@@ -284,11 +448,16 @@ tr:hover:not(.table-header) {
 }
 
 .dashboard {
+  display: flex;
+  flex-direction: column;
   background-color: #d3d3d3;
+  height: calc(100% - 80px);
+  margin-top: 80px;
 }
 
 .columns {
   display: flex;
+  flex: 12 0 90%;
 }
 
 /*column1*/
@@ -341,8 +510,8 @@ tr:hover:not(.table-header) {
 
 .column3-article-middle,
 .column3-article-bottom {
-  flex: 3 0 auto;
-  max-height: 300px;
+  flex: 4 0 auto;
+  max-height: 330px;
 }
 
 .column3-innerSection {
@@ -353,7 +522,7 @@ tr:hover:not(.table-header) {
 
 .column3-innerSection article {
   flex: 1 0 30%;
-  max-height: 100px;
+  max-height: 130px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -411,28 +580,68 @@ tr:hover:not(.table-header) {
 
 .row {
   display: flex;
+  flex: 1 0 8%;
 }
 
 .row article {
-  width: 25%;
+  flex: 1 0 22%;
   box-sizing: border-box;
   max-height: 100px;
+  background-color: #423f3f;
+  color: #ffffff;
+  text-align: left;
 }
 
-.row-article-outerLeft {
-  background-image: linear-gradient(to right, #8baaaa, #a8a5a5);
+.row article:hover {
+  background-color: rgba(66, 63, 63, 0.8);
+  cursor: pointer;
 }
 
-.row-article-innerLeft {
-  background-image: linear-gradient(to right, #a8a5a5, #736b6b);
+.statistics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.row-article-innerRight {
-  background-image: linear-gradient(to right, #736b6b, #6f6464);
+.statistics::before {
+  content: "";
+  width: 64px;
+  height: 64px;
+  background-image: url(/button-icon-spritesheet.png);
+  background-repeat: no-repeat;
+  margin: 10px;
 }
 
-.row-article-outerRight {
-  background-image: linear-gradient(to right, #6f6464, #ae8b9c);
+.statistics.users::before {
+  background-position: -128px 0;
+}
+
+.statistics.users:hover::before {
+  background-position: -192px 0;
+}
+
+.bandwidth::before {
+  background-position: 2px 0;
+}
+
+.bandwidth:hover::before {
+  background-position: -64px 0;
+}
+
+.databases::before {
+  background-position: -258px 0;
+}
+
+.databases:hover::before {
+  background-position: -318px 0;
+}
+
+.sales::before {
+  background-position: -384px 0;
+}
+
+.sales:hover::before {
+  background-position: -448px 0;
 }
 
 /*scrollbar*/
@@ -469,7 +678,7 @@ tr:hover:not(.table-header) {
   height: 36px;
   background-image: url(icon-spritesheet.png);
   background-repeat: no-repeat;
-  background-position: -338px -132px;
+  background-position: -338px -134px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -495,16 +704,29 @@ tr:hover:not(.table-header) {
   .column3-innerSection article {
     flex: 1 0 20%;
   }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .row article {
+    flex: 1 0 44%;
+  }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 870px) {
   .homepage {
     flex-direction: column;
+  }
+
+  .dashboard {
+    margin-top: 0;
   }
 
   .sidenav {
     flex-direction: row;
     width: 100%;
+    top: 0;
   }
 
   .logo {
@@ -515,6 +737,7 @@ tr:hover:not(.table-header) {
   .links {
     height: 80px;
     width: 80%;
+    display: none;
   }
 
   .navbar {
