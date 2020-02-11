@@ -609,7 +609,7 @@ hr {
   height: 64px;
   background-image: url(/button-icon-spritesheet.png);
   background-repeat: no-repeat;
-  margin: 15px;
+  margin: 10px;
 }
 
 .statistics.users::before {
