@@ -244,7 +244,7 @@ tr:hover:not(.table-header) {
   content: "";
   width: 36px;
   height: 36px;
-  background-image: url(icon-spritesheet.png);
+  background-image: url(/assets/icon-spritesheet.png);
   background-repeat: no-repeat;
 }
 
@@ -387,7 +387,7 @@ hr {
   content: "";
   width: 36px;
   height: 36px;
-  background-image: url(icon-spritesheet.png);
+  background-image: url(/assets/icon-spritesheet.png);
   background-repeat: no-repeat;
 }
 
@@ -598,7 +598,7 @@ hr {
   content: "";
   width: 64px;
   height: 64px;
-  background-image: url(/button-icon-spritesheet.png);
+  background-image: url(/assets/button-icon-spritesheet.png);
   background-repeat: no-repeat;
   margin: 10px;
 }
@@ -667,7 +667,7 @@ hr {
   content: "";
   width: 36px;
   height: 36px;
-  background-image: url(icon-spritesheet.png);
+  background-image: url(/assets/icon-spritesheet.png);
   background-repeat: no-repeat;
   background-position: -338px -134px;
 }

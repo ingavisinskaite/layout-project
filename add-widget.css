@@ -1,0 +1,12 @@
+.add-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.field {
+  width: 50%;
+  height: 50px;
+  padding: 0;
+}

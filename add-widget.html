@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Widget</title>
+    <link rel="stylesheet" href="add-widget.css">
+</head>
+
+<body>
+    <main class="add-form">
+        <h2 class="add-form-header">Add new widget</h2>
+        <input type="text" placeholder="Title" class="field title">
+        <input type="number" placeholder="Column number" class="field column-number">
+        <select class="field widget-type">
+            <option disabled selected hidden>Widget type</option>
+            <option value="userList">User list</option>
+            <option value="messages">Messages</option>
+        </select>
+        <select class="field header-type">
+            <option disabled selected hidden>Header type</option>
+            <option value="light">Light</option>
+            <option value="light">Dark</option>
+        </select>
+        <textarea class="field data"></textarea>
+        <button class="field save-btn">Save</button>
+    </main>
+</body>
+
+</html>
