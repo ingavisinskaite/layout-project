@@ -83,11 +83,11 @@ tr:hover:not(.table-header) {
 }
 
 .messages.users {
-  max-height: 170px;
+  max-height: 284px;
 }
 
 .messages.software {
-  max-height: 320px;
+  max-height: 390px;
 }
 
 .message {
@@ -229,9 +229,10 @@ tr:hover:not(.table-header) {
 }
 
 .link:hover,
-.link-with-icon:hover {
+.link-with-icon:hover:not(.disabled-item) {
   background-color: #343232;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .link {
@@ -366,8 +367,9 @@ hr {
   height: 80px;
   display: flex;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: calc(100% - 200px);
   z-index: 2;
 }
 
@@ -446,11 +448,16 @@ hr {
 }
 
 .dashboard {
+  display: flex;
+  flex-direction: column;
   background-color: #d3d3d3;
+  height: calc(100% - 80px);
+  margin-top: 80px;
 }
 
 .columns {
   display: flex;
+  flex: 12 0 90%;
 }
 
 /*column1*/
@@ -503,8 +510,8 @@ hr {
 
 .column3-article-middle,
 .column3-article-bottom {
-  flex: 3 0 auto;
-  max-height: 300px;
+  flex: 4 0 auto;
+  max-height: 330px;
 }
 
 .column3-innerSection {
@@ -515,7 +522,7 @@ hr {
 
 .column3-innerSection article {
   flex: 1 0 30%;
-  max-height: 100px;
+  max-height: 130px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -573,6 +580,7 @@ hr {
 
 .row {
   display: flex;
+  flex: 1 0 8%;
 }
 
 .row article {
@@ -581,6 +589,7 @@ hr {
   max-height: 100px;
   background-color: #423f3f;
   color: #ffffff;
+  text-align: left;
 }
 
 .row article:hover {
@@ -591,6 +600,7 @@ hr {
 .statistics {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .statistics::before {
@@ -599,7 +609,7 @@ hr {
   height: 64px;
   background-image: url(/button-icon-spritesheet.png);
   background-repeat: no-repeat;
-  margin: 5px;
+  margin: 15px;
 }
 
 .statistics.users::before {
@@ -707,6 +717,10 @@ hr {
 @media screen and (max-width: 870px) {
   .homepage {
     flex-direction: column;
+  }
+
+  .dashboard {
+    margin-top: 0;
   }
 
   .sidenav {
