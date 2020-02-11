@@ -294,7 +294,7 @@ tr:hover:not(.table-header) {
   background-position: -272px -240px;
 }
 
-.disabled-item a {
+.disabled-item {
   color: #d3d3d3;
   cursor: not-allowed;
   opacity: 0.5;
@@ -510,12 +510,12 @@ hr {
 
 .column3-article-middle,
 .column3-article-bottom {
-  flex: 4 0 auto;
+  flex: 3 0 auto;
   max-height: 330px;
 }
 
 .column3-innerSection {
-  flex: 7 0 auto;
+  flex: 3 0 auto;
   display: flex;
   flex-wrap: wrap;
 }
@@ -527,6 +527,10 @@ hr {
   background-repeat: no-repeat;
   background-position: center;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .column3-innerSection p {
@@ -544,11 +548,9 @@ hr {
 }
 
 .sales-header {
-  width: 70px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 10px auto;
 }
 
 .view-sales-btn {
@@ -560,20 +562,9 @@ hr {
     url("https://designadvisor.net/wp-content/uploads/2018/10/What-is-responsive-web-designadvisor.net_.gif");
 }
 
-.features-header {
-  margin: 8px;
-}
-
 .column3-innerSection-article-bottomRight {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://www.zend.com/sites/zend/files/image/2019-11/db3eb9bc-01a0-11ea-9f43-008cfa043684_0.jpg");
-}
-
-.users-stats {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
 }
 
 /*bottom row*/
