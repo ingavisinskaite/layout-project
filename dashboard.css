@@ -200,6 +200,8 @@ tr:hover:not(.table-header) {
   background-color: #2c2a2a;
   flex: 1 0 80px;
   color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .logo-img {
@@ -223,15 +225,18 @@ tr:hover:not(.table-header) {
 .link-with-icon {
   display: flex;
   align-items: center;
+  margin-left: 10px;
 }
 
-.link-with-icon {
-  margin-left: 10px;
+.link:hover,
+.link-with-icon:hover {
+  background-color: #343232;
+  border-radius: 5px;
 }
 
 .link {
   height: 36px;
-  margin-left: 18px;
+  padding-left: 8px;
 }
 
 .link-with-icon::before {
@@ -293,6 +298,8 @@ tr:hover:not(.table-header) {
   cursor: not-allowed;
   opacity: 0.5;
   text-decoration: none;
+  margin-left: 18px;
+  height: 36px;
 }
 
 .solar-system {
@@ -572,6 +579,13 @@ hr {
   flex: 1 0 22%;
   box-sizing: border-box;
   max-height: 100px;
+  background-color: #423f3f;
+  color: #ffffff;
+}
+
+.row article:hover {
+  background-color: rgba(66, 63, 63, 0.8);
+  cursor: pointer;
 }
 
 .statistics {
@@ -581,13 +595,43 @@ hr {
 
 .statistics::before {
   content: "";
-  width: 36px;
-  height: 36px;
+  width: 64px;
+  height: 64px;
+  background-image: url(/button-icon-spritesheet.png);
   background-repeat: no-repeat;
+  margin: 5px;
 }
 
-.users::before {
-  background-position: -372px -134px;
+.statistics.users::before {
+  background-position: -128px 0;
+}
+
+.statistics.users:hover::before {
+  background-position: -192px 0;
+}
+
+.bandwidth::before {
+  background-position: 2px 0;
+}
+
+.bandwidth:hover::before {
+  background-position: -64px 0;
+}
+
+.databases::before {
+  background-position: -258px 0;
+}
+
+.databases:hover::before {
+  background-position: -318px 0;
+}
+
+.sales::before {
+  background-position: -384px 0;
+}
+
+.sales:hover::before {
+  background-position: -448px 0;
 }
 
 /*scrollbar*/
