@@ -137,6 +137,14 @@ window.onload = function () {
         return widgetContainer;
     }
 
+    const redirectToAddWidgetForm = () => {
+        const addNewWidgetButton = document.getElementsByClassName("add-new-widget")[0];
+        addNewWidgetButton.addEventListener("click", () => {
+            location.href = "http://127.0.0.1:5500/frontend/add-widget.html";
+        })
+    }
+
+    redirectToAddWidgetForm();
     getInitialWidgets();
 }
 

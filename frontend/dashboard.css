@@ -17,11 +17,8 @@ body {
   border: none;
   background-color: #3d38c3;
   outline: none;
-}
-
-.add-new-widget a {
-  text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 
 /*widget*/
@@ -701,9 +698,8 @@ hr {
     flex: 1 0 51%;
   }
 
-  .column3-article-middle,
-  .column3-article-bottom {
-    flex: 5 0 auto;
+  .column3-widgets .widget {
+    flex: 1 0 25%;
   }
 
   .column3-innerSection {

@@ -3,7 +3,7 @@ const addNewWidget = () => {
     const columnNum = document.getElementById("column-number").value;
     const widgetType = document.getElementById("widget-type").value;
     const headerType = document.getElementById("header-type").value;
-    const data = document.getElementById("data").value;
+    const data = JSON.stringify(document.getElementById("data").value);
 
     const url = "http://localhost:3000/widgets";
 
@@ -14,24 +14,27 @@ const addNewWidget = () => {
         headerType,
         data
     }
-    console.log(newWidget);
 
+    console.log(newWidget);
     const sendBtn = document.getElementById("save-btn");
     sendBtn.addEventListener("click", postWidget(url, newWidget));
 }
 
 const postWidget = (url, widgetData) => {
-    const Http = new XMLHttpRequest();
+    const http = new XMLHttpRequest();
 
-    Http.open("POST", url, true);
+    http.open("POST", url, true);
+    http.setRequestHeader("Content-Type", "application/json");
 
-    Http.onreadystatechange = function () {
+    http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(Http.responseText)
+            console.log(http.responseText)
         }
     }
+    widgetData = JSON.stringify(widgetData);
 
-    Http.send(JSON.stringify("hi"));
+    http.send(widgetData);
+    //location.href = "http://127.0.0.1:5500/frontend/dashboard.html";
 }
 
 

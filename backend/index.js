@@ -25,24 +25,37 @@ app.options("*", cors(corsOptions));
 
 
 app.get("/widgets", cors(corsOptions), (req, res) => {
+
+    console.log("im from the GhETto");
     res.json({
         allWidgets
     })
 });
 
 app.post("/widgets", cors(corsOptions), (req, res) => {
-    console.log(req.body);
+    console.log(req.body.data);
     const id = initialWidgets[initialWidgets.length - 1].id + 1;
     const column = req.body.column;
     const type = req.body.type;
     const title = req.body.title;
     const headerType = req.body.headerType;
-    const data = req.body.data;
+    const data = [{ id: 0, author: "a", message: "aac" }]
 
+    const newWidget = {
+        id,
+        column,
+        type,
+        title,
+        headerType,
+        data
+    }
+
+    allWidgets.push(newWidget);
 
     res.json({
         allWidgets
     })
+
 });
 
 app.put("/widgets/:id", cors(corsOptions), (req, res) => { });
