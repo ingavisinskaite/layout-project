@@ -1,0 +1,26 @@
+.add-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.field {
+  width: 30%;
+  height: 50px;
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid #d8d7db;
+  outline: none;
+}
+
+.field#data {
+  height: 150px;
+  resize: vertical;
+}
+
+#header-type,
+#widget-type,
+#save-btn {
+  width: calc(30% + 12px);
+}

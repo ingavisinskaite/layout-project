@@ -7,6 +7,23 @@ body {
   display: flex;
 }
 
+.add-new-widget {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  border: none;
+  background-color: #3d38c3;
+  outline: none;
+}
+
+.add-new-widget a {
+  text-decoration: none;
+  color: white;
+}
+
 /*widget*/
 
 .widget {
@@ -22,12 +39,14 @@ body {
   transition: box-shadow ease-in-out 0.2s;
 }
 
-.type {
+.header,
+.settings {
   height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 15px;
+  border-bottom: 1px solid #d8d7db;
 }
 
 /*table*/
@@ -38,7 +57,7 @@ body {
   border-collapse: collapse;
 }
 
-.table-with-type {
+.table-with-settings {
   height: calc(100% - 50px);
 }
 
@@ -72,12 +91,12 @@ tr:hover:not(.table-header) {
   flex-direction: column;
 }
 
-.chat > .type {
+.header {
   border-bottom: 1px solid #d8d7db;
 }
 
 .messages {
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 90%;
   margin: 0 auto;
 }
@@ -97,16 +116,18 @@ tr:hover:not(.table-header) {
   align-items: flex-start;
 }
 
+.message.mine {
+  flex-direction: row-reverse;
+}
+
 .message-bubble {
-  display: inline-block;
   position: relative;
-  z-index: 1;
   height: auto;
   background-color: #d3d3d3;
   border-radius: 5px;
 }
 
-.tri-right.left:after {
+.triangle.left:after {
   content: " ";
   position: absolute;
   width: 0;
@@ -119,7 +140,7 @@ tr:hover:not(.table-header) {
   border-color: #d3d3d3 #d3d3d3 transparent transparent;
 }
 
-.tri-right.right:after {
+.triangle.right:after {
   content: " ";
   position: absolute;
   width: 0;
@@ -133,7 +154,6 @@ tr:hover:not(.table-header) {
 }
 
 .person-img {
-  vertical-align: middle;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -164,11 +184,15 @@ tr:hover:not(.table-header) {
 
 .send-btn {
   width: 90%;
-  height: 30px;
+  height: 40px;
   color: #d8d7db;
   border: 1px solid #d8d7db;
   margin: 0 auto 10px auto;
   padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
 }
 
 .send-btn:hover {
@@ -182,6 +206,7 @@ tr:hover:not(.table-header) {
 .send-icon {
   width: 18px;
   vertical-align: bottom;
+  margin: 0 10px;
 }
 
 /*sidenav*/
@@ -244,7 +269,7 @@ tr:hover:not(.table-header) {
   content: "";
   width: 36px;
   height: 36px;
-  background-image: url(/assets/icon-spritesheet.png);
+  background-image: url(/frontend/assets/icon-spritesheet.png);
   background-repeat: no-repeat;
 }
 
@@ -387,7 +412,7 @@ hr {
   content: "";
   width: 36px;
   height: 36px;
-  background-image: url(/assets/icon-spritesheet.png);
+  background-image: url(/frontend/assets/icon-spritesheet.png);
   background-repeat: no-repeat;
 }
 
@@ -481,16 +506,11 @@ hr {
   flex-direction: column;
 }
 
-.column2-article-top {
-  flex: 3 0 auto;
-  max-height: 600px;
-}
-
-.column2-article-bottom {
-  flex: 2 0 auto;
+.column2 .widget {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  max-height: 400px;
+  max-height: 600px;
 }
 
 /*column-3*/
@@ -501,17 +521,15 @@ hr {
   flex-direction: column;
 }
 
-.column3-article-top {
-  flex: 5 0 auto;
+.column3-widgets {
   display: flex;
   flex-direction: column;
-  max-height: 300px;
+  flex: 5 0 70%;
 }
 
-.column3-article-middle,
-.column3-article-bottom {
-  flex: 3 0 auto;
-  max-height: 330px;
+.column3-widgets .widget {
+  flex: 1 0 30%;
+  max-height: 300px;
 }
 
 .column3-innerSection {
@@ -598,7 +616,7 @@ hr {
   content: "";
   width: 64px;
   height: 64px;
-  background-image: url(/assets/button-icon-spritesheet.png);
+  background-image: url(/frontend/assets/button-icon-spritesheet.png);
   background-repeat: no-repeat;
   margin: 10px;
 }
@@ -658,16 +676,16 @@ hr {
 
 /*settings icon*/
 
-.settings {
+.settings-icon {
   display: flex;
   align-items: center;
 }
 
-.settings::before {
+.settings-icon::before {
   content: "";
   width: 36px;
   height: 36px;
-  background-image: url(/assets/icon-spritesheet.png);
+  background-image: url(/frontend/assets/icon-spritesheet.png);
   background-repeat: no-repeat;
   background-position: -338px -134px;
 }
