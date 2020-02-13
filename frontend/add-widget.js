@@ -1,9 +1,9 @@
 const addNewWidget = () => {
-    const title = document.getElementById("title").value;
-    const columnNum = parseInt(document.getElementById("column-number").value);
-    const widgetType = parseInt(document.getElementById("widget-type").value);
-    const headerType = parseInt(document.getElementById("header-type").value);
-    const data = JSON.parse(document.getElementById("data").value);
+    const title = document.getElementById('title').value;
+    const columnNum = parseInt(document.getElementById('column-number').value);
+    const widgetType = parseInt(document.getElementById('widget-type').value);
+    const headerType = parseInt(document.getElementById('header-type').value);
+    const data = JSON.parse(document.getElementById('data').value);
     let dataArray = [];
     if (!(data instanceof Array)) {
         dataArray.push(data);
@@ -11,7 +11,7 @@ const addNewWidget = () => {
         dataArray = data;
     }
 
-    const url = "http://localhost:3000/widgets";
+    const url = 'http://localhost:3000/widgets';
 
     const newWidget = {
         column: columnNum,
@@ -27,8 +27,8 @@ const addNewWidget = () => {
 const postWidget = (url, widgetData) => {
     const http = new XMLHttpRequest();
 
-    http.open("POST", url, true);
-    http.setRequestHeader("Content-Type", "application/json");
+    http.open('POST', url, true);
+    http.setRequestHeader('Content-Type', 'application/json');
 
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -42,7 +42,7 @@ const postWidget = (url, widgetData) => {
 }
 
 const redirectToHomepage = () => {
-    location.href = "http://127.0.0.1:5500/frontend/dashboard.html";
+    location.href = 'http://127.0.0.1:5500/frontend/dashboard.html';
 }
 
 

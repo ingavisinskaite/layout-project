@@ -1,10 +1,11 @@
-const widgetId = localStorage.getItem("id");
-const url = "http://localhost:3000/widgets/" + widgetId;
+const urlParams = new URLSearchParams(window.location.search);
+const widgetId = urlParams.get('id');
+const url = 'http://localhost:3000/widgets/' + widgetId;
 
 const getWidget = () => {
     const http = new XMLHttpRequest();
 
-    http.open("GET", url);
+    http.open('GET', url);
     http.send();
 
     http.onreadystatechange = function () {
@@ -16,26 +17,26 @@ const getWidget = () => {
 }
 
 const fillEditForm = (widget) => {
-    const title = document.getElementById("title")
+    const title = document.getElementById('title')
     title.value = widget.title;
-    const columnNum = document.getElementById("column-number");
-    columnNum.value = widget.column;
-    const widgetType = document.getElementById("widget-type");
-    widgetType.value = widget.type;
-    const headerType = document.getElementById("header-type");
+    const column = document.getElementById('column-number');
+    column.value = widget.column;
+    const type = document.getElementById('type');
+    type.value = widget.type;
+    const headerType = document.getElementById('header-type');
     headerType.value = widget.headerType;
-    const data = document.getElementById("data");
+    const data = document.getElementById('data');
     data.value = JSON.stringify(widget.data);
 }
 
 window.onload = getWidget();
 
 const editWidget = () => {
-    const title = document.getElementById("title").value;
-    const columnNum = parseInt(document.getElementById("column-number").value);
-    const widgetType = parseInt(document.getElementById("widget-type").value);
-    const headerType = parseInt(document.getElementById("header-type").value);
-    const data = JSON.parse(document.getElementById("data").value);
+    const title = document.getElementById('title').value;
+    const column = parseInt(document.getElementById('column-number').value);
+    const type = parseInt(document.getElementById('type').value);
+    const headerType = parseInt(document.getElementById('header-type').value);
+    const data = JSON.parse(document.getElementById('data').value);
     let dataArray = [];
     if (!(data instanceof Array)) {
         dataArray.push(data);
@@ -45,8 +46,8 @@ const editWidget = () => {
 
 
     const editedWidget = {
-        column: columnNum,
-        type: widgetType,
+        column,
+        type,
         title,
         headerType,
         dataArray
@@ -58,8 +59,8 @@ const editWidget = () => {
 const putWidget = (widgetData) => {
     const http = new XMLHttpRequest();
 
-    http.open("PUT", url, true);
-    http.setRequestHeader("Content-Type", "application/json");
+    http.open('PUT', url, true);
+    http.setRequestHeader('Content-Type', 'application/json');
 
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -74,7 +75,7 @@ const putWidget = (widgetData) => {
 const deleteWidget = () => {
     const http = new XMLHttpRequest();
 
-    http.open("DELETE", url, true);
+    http.open('DELETE', url, true);
 
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -87,6 +88,6 @@ const deleteWidget = () => {
 }
 
 const redirectToHomepage = () => {
-    location.href = "http://127.0.0.1:5500/frontend/dashboard.html";
+    location.href = 'http://127.0.0.1:5500/frontend/dashboard.html';
 }
 

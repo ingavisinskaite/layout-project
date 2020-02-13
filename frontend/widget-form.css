@@ -37,7 +37,7 @@ body {
 }
 
 #header-type,
-#widget-type,
+#type,
 #save-widget,
 #delete-widget {
   width: calc(30% + 12px);

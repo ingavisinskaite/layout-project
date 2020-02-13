@@ -12,9 +12,9 @@
 
 <body>
     <main class="homepage">
-        <aside class="sidenav">
-            <div class="logo">
-                <img src="/frontend/assets/logo.png" class="logo-img">
+        <aside id="sidenav">
+            <div id="logo">
+                <img src="/frontend/assets/logo.png" id="logo-img">
                 CLEAN UI
             </div>
             <nav class="links desktop">
@@ -59,7 +59,7 @@
                     </li>
                 </ul>
                 <hr>
-                <div class="solar-system">
+                <div id="solar-system">
                     <p>Solar System</p>
                     <ul>
                         <li class="planet earth"><a href="/frontend/dashboard.html">Earth</a></li>
@@ -94,46 +94,46 @@
             </nav>
         </aside>
         <div class="container">
-            <nav class="navbar">
-                <div class="navbar-dropdowns-container">
+            <nav id="navbar">
+                <div id="navbar-dropdowns-container">
                     <div class="navbar-dropdown navbar-issues arrow-bottom">Issues History</div>
                     <div class="navbar-dropdown navbar-dashboards arrow-bottom">Dashboards</div>
                     <div class="navbar-dropdown navbar-projects arrow-bottom">Projects</div>
                 </div>
-                <div class="navbar-search-profile-container">
-                    <input placeholder="Search.." class="navbar-search" />
-                    <div class="navbar-profile"></div>
+                <div id="navbar-search-profile-container">
+                    <input placeholder="Search.." id="navbar-search" />
+                    <div id="navbar-profile"></div>
                     <div class="arrow-bottom"></div>
                 </div>
             </nav>
-            <div class="dashboard">
-                <div class="columns">
-                    <section class="column1">
+            <div id="dashboard">
+                <div id="columns">
+                    <section id="column1">
                     </section>
-                    <section class="column2">
+                    <section id="column2">
                     </section>
-                    <section class="column3">
-                        <div class="column3-widgets">
+                    <section id="column3">
+                        <div id="column3-widgets">
 
                         </div>
-                        <section class="column3-innerSection">
-                            <article class="widget features column3-innerSection-article-topLeft">
-                                <ol class="features-list">
+                        <section id="column3-innerSection">
+                            <article class="widget" id="column3-innerSection-article-topLeft">
+                                <ol>
                                     <li>Upgrade</li>
                                     <li>Finish</li>
                                 </ol>
                             </article>
-                            <article class="widget sales column3-innerSection-article-topRight">
-                                <h2 class="sales-header" title="Sales Growth">Sales Growth</h2>
-                                <p class="view-sales-btn">View Report</p>
+                            <article class="widget" id="column3-innerSection-article-topRight">
+                                <h2 id="sales-header" title="Sales Growth">Sales Growth</h2>
+                                <p id="view-sales-btn">View Report</p>
                             </article>
-                            <article class="widget features column3-innerSection-article-bottomLeft">
-                                <h2 class="features-header">Clean</h2>
+                            <article class="widget" id="column3-innerSection-article-bottomLeft">
+                                <h2>Clean</h2>
                                 <p>Simple</p>
                                 <p>Responsive</p>
                             </article>
-                            <article class="widget users column3-innerSection-article-bottomRight">
-                                <div class="users-stats">
+                            <article class="widget" id="column3-innerSection-article-bottomRight">
+                                <div>
                                     <p>Total: 24 467</p>
                                     <p>New: 456</p>
                                 </div>
@@ -142,32 +142,32 @@
                     </section>
                 </div>
                 <section class="row">
-                    <article class="widget row-article-outerLeft">
-                        <div class="statistics users">
+                    <article class="widget">
+                        <div class="statistics" id="users">
                             <div>
                                 <h3>Users</h3>
                                 <p>Total: 24 467</p>
                             </div>
                         </div>
                     </article>
-                    <article class="widget row-article-innerLeft">
-                        <div class="statistics databases">
+                    <article class="widget">
+                        <div class="statistics" id="databases">
                             <div>
                                 <h3>Databases</h3>
                                 <p>Total: 765</p>
                             </div>
                         </div>
                     </article>
-                    <article class="widget row-article-innerRight">
-                        <div class="statistics bandwidth">
+                    <article class="widget">
+                        <div class="statistics" id="bandwidth">
                             <div>
                                 <h3>Bandwidth</h3>
                                 <p>160.32 GB/S</p>
                             </div>
                         </div>
                     </article>
-                    <article class="widget row-article-outerRight">
-                        <div class="statistics sales">
+                    <article class="widget">
+                        <div class="statistics" id="sales">
                             <div>
                                 <h3>Daily Sales</h3>
                                 <p>Total: 765</p>
@@ -177,7 +177,7 @@
                 </section>
             </div>
         </div>
-        <button class="add-new-widget" title="Add new widget" onclick="redirectToAddWidgetForm()"><img
+        <button id="add-new-widget" title="Add new widget" onclick="redirectToAddWidgetForm()"><img
                 src="/frontend/assets/plus.svg" id="plus-icon"></button>
     </main>
 </body>
