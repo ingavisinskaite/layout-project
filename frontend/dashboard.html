@@ -17,7 +17,7 @@
                 <img src="/frontend/assets/logo.png" class="logo-img">
                 CLEAN UI
             </div>
-            <nav class="links">
+            <nav class="links desktop">
                 <ul>
                     <li class="link-with-icon arrow-right settings-icon"><a href="/frontend/dashboard.html">Theme
                             Settings</a></li>
@@ -67,6 +67,29 @@
                         <li class="planet mercury"><a href="/frontend/dashboard.html">Mercury</a></li>
                         <li class="planet jupiter"><a href="/frontend/dashboard.html">Jupiter</a></li>
                     </ul>
+                </div>
+            </nav>
+            <nav class="links tablet">
+                <ul>
+                    <li class="link-with-icon settings-icon"></li>
+                    <li class="link-with-icon documentation"></li>
+                    <li class="link-with-icon home"></li>
+                    <li class="link-with-icon profile"></li>
+                    <li class="link-with-icon messaging"></li>
+                    <li class="link-with-icon mail"></li>
+                    <li class="link-with-icon calendar"></li>
+                    <li class="link-with-icon gallery"></li>
+                    <li class="link-with-icon layout"></li>
+                    <li class="link-with-icon icons"></li>
+                    <li class="link-with-icon typography"></li>
+                    <li class="link-with-icon pages"></li>
+                </ul>
+            </nav>
+            <nav class="mobile" onclick="toggleMobileMenu()">
+                <div class="mobile-menu-container">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
                 </div>
             </nav>
         </aside>
@@ -154,7 +177,8 @@
                 </section>
             </div>
         </div>
-        <button class="add-new-widget" title="Add new widget">+</button>
+        <button class="add-new-widget" title="Add new widget" onclick="redirectToAddWidgetForm()"><img
+                src="/frontend/assets/plus.svg" id="plus-icon"></button>
     </main>
 </body>
 

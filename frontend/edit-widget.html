@@ -4,7 +4,7 @@
 <head>
     <title>Add Widget</title>
     <link rel="stylesheet" href="widget-form.css">
-    <script src="add-widget.js"></script>
+    <script src="edit-widget.js"></script>
 </head>
 
 <body>
@@ -13,17 +13,16 @@
         <input type="text" placeholder="Title" class="field" id="title" required>
         <input type="number" placeholder="Column number" min="1" max="3" class="field" id="column-number" required>
         <select class="field" id="widget-type" required>
-            <option disabled selected hidden>Widget type</option>
             <option value="0">User list</option>
             <option value="1">Messages</option>
         </select>
         <select class="field" id="header-type" required>
-            <option disabled selected hidden>Header type</option>
             <option value="0">Light</option>
             <option value="1">Dark</option>
         </select>
         <textarea class="field" id="data" placeholder="Widget data in JSON format" required></textarea>
-        <button class="field" id="save-widget" onclick="addNewWidget()">Save</button>
+        <button class="field" id="save-widget" onclick="editWidget()">Edit</button>
+        <button class="field" id="delete-widget" onclick="deleteWidget()">Delete</button>
     </main>
 </body>
 

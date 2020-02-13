@@ -1,14 +1,14 @@
 window.onload = function () {
     const getInitialWidgets = () => {
         const url = "http://localhost:3000/widgets";
-        const Http = new XMLHttpRequest();
+        const http = new XMLHttpRequest();
 
-        Http.open("GET", url);
-        Http.send();
+        http.open("GET", url);
+        http.send();
 
-        Http.onreadystatechange = function () {
+        http.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                let data = JSON.parse(Http.responseText);
+                let data = JSON.parse(http.responseText);
                 data.allWidgets.forEach(widget => {
                     createWidget(widget)
                 })
@@ -41,6 +41,8 @@ window.onload = function () {
         if (widget.settings) {
             table.classList.add("table-with-settings")
             const tableSettings = document.createElement("div");
+            tableSettings.onclick = function () { redirectToEditWidgetForm(widget.id) };
+            tableSettings.title = "Click to edit widget";
             tableSettings.classList.add("settings");
             const tableType = document.createElement("p");
             tableType.textContent = "Dashboard: " + widget.title;
@@ -51,6 +53,8 @@ window.onload = function () {
             widgetContainer.appendChild(tableSettings);
         }
         const tableHeader = document.createElement("tr");
+        tableHeader.onclick = function () { redirectToEditWidgetForm(widget.id) };
+        tableHeader.title = "Click to edit widget";
         widget.headerType ? tableHeader.classList.add("table-header", "dark") : tableHeader.classList.add("table-header");
         const tableHeaderData = ["#", "First Name", "Last Name", "Username"];
         tableHeaderData.forEach(data => {
@@ -81,17 +85,20 @@ window.onload = function () {
 
     const createChat = (widget, widgetContainer) => {
         widgetContainer.classList.add("chat");
-        if (widget.settings) {
-            const chatSettings = document.createElement("div");
-            chatSettings.classList.add("settings");
-            const chatType = document.createElement("p");
-            chatType.textContent = "Conversation: " + widget.title;
-            chatSettings.appendChild(chatType);
-            const settingsIcon = document.createElement("div");
-            settingsIcon.classList.add("settings-icon", "arrow-bottom");
-            chatSettings.appendChild(settingsIcon);
-            widgetContainer.appendChild(chatSettings);
+        const chatSettings = document.createElement("div");
+        chatSettings.classList.add("settings");
+        if (widget.headerType) {
+            chatSettings.classList.add("dark");
         }
+        chatSettings.onclick = function () { redirectToEditWidgetForm(widget.id) };
+        chatSettings.title = "Click to edit widget";
+        const chatType = document.createElement("p");
+        chatType.textContent = "Conversation: " + widget.title;
+        chatSettings.appendChild(chatType);
+        const settingsIcon = document.createElement("div");
+        settingsIcon.classList.add("settings-icon", "arrow-bottom");
+        chatSettings.appendChild(settingsIcon);
+        widgetContainer.appendChild(chatSettings);
         const messages = document.createElement("div");
         messages.classList.add("messages");
         widget.data.forEach(message => {
@@ -137,14 +144,24 @@ window.onload = function () {
         return widgetContainer;
     }
 
-    const redirectToAddWidgetForm = () => {
-        const addNewWidgetButton = document.getElementsByClassName("add-new-widget")[0];
-        addNewWidgetButton.addEventListener("click", () => {
-            location.href = "http://127.0.0.1:5500/frontend/add-widget.html";
-        })
-    }
-
-    redirectToAddWidgetForm();
     getInitialWidgets();
+
 }
 
+const redirectToAddWidgetForm = () => {
+    location.href = "http://127.0.0.1:5500/frontend/add-widget.html";
+}
+
+redirectToEditWidgetForm = (id) => {
+    location.href = "http://127.0.0.1:5500/frontend/edit-widget.html";
+    setLocalStorage(id);
+}
+
+const setLocalStorage = (id) => {
+    localStorage.setItem("id", id);
+}
+
+const toggleMobileMenu = () => {
+    const mobileMenuContainer = document.getElementsByClassName("mobile-menu-container")[0];
+    mobileMenuContainer.classList.toggle("change");
+}

@@ -1,9 +1,15 @@
 const addNewWidget = () => {
     const title = document.getElementById("title").value;
-    const columnNum = document.getElementById("column-number").value;
-    const widgetType = document.getElementById("widget-type").value;
-    const headerType = document.getElementById("header-type").value;
-    const data = JSON.stringify(document.getElementById("data").value);
+    const columnNum = parseInt(document.getElementById("column-number").value);
+    const widgetType = parseInt(document.getElementById("widget-type").value);
+    const headerType = parseInt(document.getElementById("header-type").value);
+    const data = JSON.parse(document.getElementById("data").value);
+    let dataArray = [];
+    if (!(data instanceof Array)) {
+        dataArray.push(data);
+    } else {
+        dataArray = data;
+    }
 
     const url = "http://localhost:3000/widgets";
 
@@ -12,12 +18,10 @@ const addNewWidget = () => {
         type: widgetType,
         title,
         headerType,
-        data
+        dataArray
     }
 
-    console.log(newWidget);
-    const sendBtn = document.getElementById("save-btn");
-    sendBtn.addEventListener("click", postWidget(url, newWidget));
+    postWidget(url, newWidget);
 }
 
 const postWidget = (url, widgetData) => {
@@ -28,13 +32,13 @@ const postWidget = (url, widgetData) => {
 
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(http.responseText)
+            console.log(http.responseText.newWidgetId);
+            location.href = "http://127.0.0.1:5500/frontend/dashboard.html";
         }
     }
     widgetData = JSON.stringify(widgetData);
 
     http.send(widgetData);
-    //location.href = "http://127.0.0.1:5500/frontend/dashboard.html";
 }
 
 

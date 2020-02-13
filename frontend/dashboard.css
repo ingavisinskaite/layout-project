@@ -21,6 +21,10 @@ body {
   cursor: pointer;
 }
 
+#plus-icon {
+  width: 30px;
+}
+
 /*widget*/
 
 .widget {
@@ -44,6 +48,7 @@ body {
   align-items: center;
   padding: 0 15px;
   border-bottom: 1px solid #d8d7db;
+  cursor: pointer;
 }
 
 /*table*/
@@ -60,6 +65,7 @@ body {
 
 .table-header {
   height: 50px;
+  cursor: pointer;
 }
 
 td {
@@ -236,6 +242,14 @@ tr:hover:not(.table-header) {
   background-color: #423f3f;
   height: 100%;
   color: #ffffff;
+}
+
+.links.tablet {
+  display: none;
+}
+
+.mobile {
+  display: none;
 }
 
 .links ul {
@@ -492,7 +506,7 @@ hr {
 
 .column1 article {
   flex: 1 0 auto;
-  max-height: 500px;
+  max-height: 700px;
 }
 
 /*column-2*/
@@ -736,13 +750,32 @@ hr {
 
   .logo {
     height: 80px;
-    width: 20%;
+    flex: 1 0 20%;
+    letter-spacing: 1px;
   }
 
-  .links {
+  .links.desktop {
     height: 80px;
     width: 80%;
     display: none;
+  }
+
+  .links.tablet {
+    display: block;
+    flex: 7 0 80%;
+    height: 80px;
+  }
+
+  .link-with-icon {
+    margin: 0;
+  }
+
+  .tablet ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    justify-content: space-evenly;
   }
 
   .navbar {
@@ -778,6 +811,53 @@ hr {
 }
 
 @media screen and (max-width: 550px) {
+  .logo {
+    letter-spacing: 0;
+    font-weight: normal;
+  }
+
+  .links.tablet {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+    background-color: #423f3f;
+    flex: 7 0 50%;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .mobile-menu-container {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .change .bar2 {
+    opacity: 0;
+  }
+
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
   .column1,
   .column2 {
     flex: 1 0 51%;

@@ -21,6 +21,17 @@
 
 #header-type,
 #widget-type,
-#save-btn {
+#save-widget,
+#delete-widget {
   width: calc(30% + 12px);
+}
+
+#save-widget {
+  background-color: #3d38c3;
+  color: #fff;
+}
+
+#delete-widget {
+  background-color: #b91f1f;
+  color: #fff;
 }

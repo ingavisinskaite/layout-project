@@ -23,23 +23,29 @@ const port = 3000;
 
 app.options("*", cors(corsOptions));
 
-
 app.get("/widgets", cors(corsOptions), (req, res) => {
 
-    console.log("im from the GhETto");
     res.json({
         allWidgets
     })
 });
 
+app.get("/widgets/:id", cors(corsOptions), (req, res) => {
+    const id = Number(req.params.id);
+    let widgetToEdit = allWidgets.find(widget => widget.id === id);
+
+    res.json({
+        widgetToEdit
+    })
+});
+
 app.post("/widgets", cors(corsOptions), (req, res) => {
-    console.log(req.body.data);
     const id = initialWidgets[initialWidgets.length - 1].id + 1;
     const column = req.body.column;
     const type = req.body.type;
     const title = req.body.title;
     const headerType = req.body.headerType;
-    const data = [{ id: 0, author: "a", message: "aac" }]
+    const data = req.body.dataArray;
 
     const newWidget = {
         id,
@@ -53,14 +59,44 @@ app.post("/widgets", cors(corsOptions), (req, res) => {
     allWidgets.push(newWidget);
 
     res.json({
-        allWidgets
+        newWidgetId: id
     })
 
 });
 
-app.put("/widgets/:id", cors(corsOptions), (req, res) => { });
+app.put("/widgets/:id", cors(corsOptions), (req, res) => {
+    const id = Number(req.params.id);
+    const column = req.body.column;
+    const type = req.body.type;
+    const title = req.body.title;
+    const headerType = req.body.headerType;
+    const data = req.body.dataArray;
 
-app.delete("/widgets/:id", cors(corsOptions), (req, res) => { });
+    let indexOfWidget = allWidgets.findIndex(widget => widget.id === id);
+
+    const editedWidget = {
+        id,
+        column,
+        type,
+        title,
+        headerType,
+        data
+    }
+
+    allWidgets[indexOfWidget] = editedWidget;
+
+    res.json({
+        editedId: id
+    })
+});
+
+app.delete("/widgets/:id", cors(corsOptions), (req, res) => {
+    const id = Number(req.params.id);
+
+    allWidgets = allWidgets.filter(widget => widget.id !== id);
+
+    res.status(200).send({});
+});
 
 app.listen(process.env.PORT || port, () => {
     console.log("Started listening");
