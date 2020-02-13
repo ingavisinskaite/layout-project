@@ -1,8 +1,13 @@
-.add-form {
+body {
+  margin: 0;
+}
+
+.widget-form {
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
+  height: 100vh;
 }
 
 .field {
@@ -11,6 +16,7 @@
   padding: 5px;
   margin: 2px;
   border: 1px solid #d8d7db;
+  border-radius: 5px;
   outline: none;
 }
 
@@ -29,9 +35,16 @@
 #save-widget {
   background-color: #3d38c3;
   color: #fff;
+  cursor: pointer;
 }
 
 #delete-widget {
   background-color: #b91f1f;
   color: #fff;
+  cursor: pointer;
+}
+
+#save-widget.disabled {
+  background-color: #d8d7db;
+  cursor: not-allowed;
 }

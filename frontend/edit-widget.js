@@ -1,20 +1,6 @@
 const widgetId = localStorage.getItem("id");
 const url = "http://localhost:3000/widgets/" + widgetId;
 
-const fillEditForm = (widget) => {
-    const title = document.getElementById("title")
-    title.value = widget.title;
-    const columnNum = document.getElementById("column-number");
-    columnNum.value = widget.column;
-    const widgetType = document.getElementById("widget-type");
-    widgetType.value = widget.type;
-    const headerType = document.getElementById("header-type");
-    headerType.value = widget.headerType;
-    const data = document.getElementById("data");
-    data.value = JSON.stringify(widget.data);
-}
-
-
 const getWidget = () => {
     const http = new XMLHttpRequest();
 
@@ -27,6 +13,21 @@ const getWidget = () => {
             fillEditForm(widgetData.widgetToEdit);
         }
     }
+}
+
+const fillEditForm = (widget) => {
+    const title = document.getElementById("title")
+    title.value = widget.title;
+    const columnNum = document.getElementById("column-number");
+    columnNum.value = widget.column;
+    const widgetType = document.getElementById("widget-type");
+    widgetType.value = widget.type;
+    const headerType = document.getElementById("header-type");
+    headerType.value = widget.headerType;
+    const data = document.getElementById("data");
+    data.value = JSON.stringify(widget.data);
+
+    styleEditButton();
 }
 
 window.onload = getWidget();
@@ -70,6 +71,15 @@ const putWidget = (widgetData) => {
     widgetData = JSON.stringify(widgetData);
 
     http.send(widgetData);
+}
+
+const styleEditButton = () => {
+    const editButton = document.getElementById("save-widget");
+    if (editButton.disabled) {
+        editButton.classList.add("disabled");
+    } else {
+        editButton.classList.remove("disabled");
+    }
 }
 
 const deleteWidget = () => {

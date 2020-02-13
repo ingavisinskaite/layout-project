@@ -187,15 +187,16 @@ tr:hover:not(.table-header) {
 
 .send-btn {
   width: 90%;
-  height: 40px;
-  color: #d8d7db;
+  height: 50px;
+  color: #ffffff;
+  background-color: #3d38c3;
   border: 1px solid #d8d7db;
+  border-radius: 5px;
   margin: 0 auto 10px auto;
-  padding-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  font-size: 16px;
 }
 
 .send-btn:hover {
@@ -208,7 +209,6 @@ tr:hover:not(.table-header) {
 
 .send-icon {
   width: 18px;
-  vertical-align: bottom;
   margin: 0 10px;
 }
 
@@ -404,7 +404,6 @@ hr {
   display: flex;
   align-items: center;
   position: fixed;
-  top: 0;
   width: calc(100% - 200px);
   z-index: 2;
 }
@@ -469,23 +468,15 @@ hr {
 .navbar-profile {
   height: 32px;
   width: 32px;
-  background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
   background-image: url("https://media4.s-nbcnews.com/i/newscms/2019_28/2929131/190618-allan-smith-byline1860_e20f6bbeb1d9b2496dd6943f6a3da256.jpg");
   background-size: cover;
-  background-position: center;
 }
 
 /*dashboard*/
 
-.container {
-  flex: 12 0 75%;
-}
-
 .dashboard {
-  display: flex;
-  flex-direction: column;
   background-color: #d3d3d3;
   height: calc(100% - 80px);
   margin-top: 80px;
@@ -493,7 +484,6 @@ hr {
 
 .columns {
   display: flex;
-  flex: 12 0 90%;
 }
 
 /*column1*/
@@ -600,7 +590,6 @@ hr {
 
 .row {
   display: flex;
-  flex: 1 0 8%;
 }
 
 .row article {
@@ -791,15 +780,6 @@ hr {
     flex-direction: row;
   }
 
-  .column3-article-top,
-  .column3-article-middle {
-    flex: 1 0 45%;
-  }
-
-  .column3-article-bottom {
-    flex: 1 0 51%;
-  }
-
   .column3-innerSection {
     flex: 1 0 45%;
     flex-wrap: wrap;
@@ -856,19 +836,6 @@ hr {
   .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
     transform: rotate(45deg) translate(-8px, -8px);
-  }
-
-  .column1,
-  .column2 {
-    flex: 1 0 51%;
-  }
-
-  .column3 {
-    flex: 1 0 51%;
-  }
-
-  .row {
-    flex-wrap: wrap;
   }
 
   .row article {
