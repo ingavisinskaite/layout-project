@@ -135,7 +135,7 @@ window.onload = function () {
         sendBtn.classList.add('send-btn');
         sendBtn.textContent = 'Send';
         const sendIcon = document.createElement('img');
-        sendIcon.src = '/frontend/assets/send.svg';
+        sendIcon.src = 'send.svg';
         sendIcon.classList.add('send-icon');
         sendBtn.appendChild(sendIcon);
         widgetContainer.appendChild(messages);
@@ -149,11 +149,11 @@ window.onload = function () {
 }
 
 const redirectToAddWidgetForm = () => {
-    location.href = 'http://127.0.0.1:5500/frontend/add-widget.html';
+    location.href = 'http://localhost:3000/form/';
 }
 
 const redirectToEditWidgetForm = (id) => {
-    location.href = 'http://127.0.0.1:5500/frontend/edit-widget.html';
+    location.href = 'http://localhost:3000/form/' + id;
 }
 
 const toggleMobileMenu = () => {

@@ -88,6 +88,6 @@ const deleteWidget = () => {
 }
 
 const redirectToHomepage = () => {
-    location.href = 'http://127.0.0.1:5500/frontend/dashboard.html';
+    location.href = 'http://localhost:3000/dashboard/';
 }
 

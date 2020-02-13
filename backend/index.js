@@ -8,7 +8,7 @@ let allWidgets = initialWidgets;
 
 app.use(bodyParser.json());
 
-const allowedOrigins = ["http://127.0.0.1:5500"];
+const allowedOrigins = ["http://127.0.0.1:5500", "http://localhost:3000"];
 const corsOptions = {
     origin: function (origin, callback) {
         if (allowedOrigins.indexOf(origin) !== -1) {
@@ -21,9 +21,60 @@ const corsOptions = {
 
 const port = 3000;
 
+app.use("/dashboard/*", (req, res) => {
+    console.log(req.params);
+    let fileToServe;
+    if (req.params && req.params[0]) {
+        if (req.params[0].indexOf("css") > 0 || req.params[0].indexOf("js") > 0) {
+            fileToServe = req.params[0];
+        } else if (req.params[0].indexOf("svg") > 0 || req.params[0].indexOf("png") > 0) {
+            fileToServe = "assets/" + req.params[0];
+        } else {
+            fileToServe = "dashboard.html";
+        }
+    } else {
+        fileToServe = "dashboard.html";
+    }
+    res.sendFile(fileToServe, { root: "../frontend/" });
+});
+
+app.use("/form/*", (req, res) => {
+    console.log(req.params);
+    let fileToServe;
+    if (req.params && req.params[0]) {
+        if (req.params[0].indexOf("css") > 0 || req.params[0].indexOf("js") > 0) {
+            fileToServe = req.params[0];
+        } else if (req.params[0].indexOf("svg") > 0 || req.params[0].indexOf("png") > 0) {
+            fileToServe = "assets/" + req.params[0];
+        } else {
+            fileToServe = "add-widget.html";
+        }
+    } else {
+        fileToServe = "add-widget.html";
+    }
+    res.sendFile(fileToServe, { root: "../frontend/" });
+});
+
+app.use("/form/:id/*", (req, res) => {
+    console.log(req.params);
+    let fileToServe;
+    if (req.params && req.params[0]) {
+        if (req.params[0].indexOf("css") > 0 || req.params[0].indexOf("js") > 0) {
+            fileToServe = req.params[0];
+        } else if (req.params[0].indexOf("svg") > 0 || req.params[0].indexOf("png") > 0) {
+            fileToServe = "assets/" + req.params[0];
+        } else {
+            fileToServe = "edit-widget.html";
+        }
+    } else {
+        fileToServe = "edit-widget.html";
+    }
+    res.sendFile(fileToServe, { root: "../frontend/" });
+});
+
 app.options("*", cors(corsOptions));
 
-app.get("/widgets", cors(corsOptions), (req, res) => {
+app.get("/widgets", (req, res) => {
 
     res.json({
         allWidgets
