@@ -477,6 +477,8 @@ hr {
 /*dashboard*/
 
 .dashboard {
+  display: flex;
+  flex-direction: column;
   background-color: #d3d3d3;
   height: calc(100% - 80px);
   margin-top: 80px;
@@ -484,6 +486,7 @@ hr {
 
 .columns {
   display: flex;
+  flex: 12 0 75%;
 }
 
 /*column1*/
@@ -590,6 +593,7 @@ hr {
 
 .row {
   display: flex;
+  flex: 1 0 8%;
 }
 
 .row article {

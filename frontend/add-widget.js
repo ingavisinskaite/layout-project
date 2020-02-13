@@ -33,12 +33,16 @@ const postWidget = (url, widgetData) => {
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(http.responseText.newWidgetId);
-            location.href = "http://127.0.0.1:5500/frontend/dashboard.html";
+            redirectToHomepage();
         }
     }
     widgetData = JSON.stringify(widgetData);
 
     http.send(widgetData);
+}
+
+const redirectToHomepage = () => {
+    location.href = "http://127.0.0.1:5500/frontend/dashboard.html";
 }
 
 

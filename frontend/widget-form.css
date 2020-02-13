@@ -2,6 +2,17 @@ body {
   margin: 0;
 }
 
+#back-button {
+  float: left;
+  margin: 15px;
+  background-color: #3d38c3;
+  color: white;
+  border: none;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+}
+
 .widget-form {
   display: flex;
   flex-direction: column;
@@ -42,9 +53,4 @@ body {
   background-color: #b91f1f;
   color: #fff;
   cursor: pointer;
-}
-
-#save-widget.disabled {
-  background-color: #d8d7db;
-  cursor: not-allowed;
 }

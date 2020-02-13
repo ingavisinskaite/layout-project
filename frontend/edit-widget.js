@@ -26,8 +26,6 @@ const fillEditForm = (widget) => {
     headerType.value = widget.headerType;
     const data = document.getElementById("data");
     data.value = JSON.stringify(widget.data);
-
-    styleEditButton();
 }
 
 window.onload = getWidget();
@@ -65,21 +63,12 @@ const putWidget = (widgetData) => {
 
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            location.href = "http://127.0.0.1:5500/frontend/dashboard.html";
+            redirectToHomepage();
         }
     }
     widgetData = JSON.stringify(widgetData);
 
     http.send(widgetData);
-}
-
-const styleEditButton = () => {
-    const editButton = document.getElementById("save-widget");
-    if (editButton.disabled) {
-        editButton.classList.add("disabled");
-    } else {
-        editButton.classList.remove("disabled");
-    }
 }
 
 const deleteWidget = () => {
@@ -90,10 +79,14 @@ const deleteWidget = () => {
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(http.responseText);
-            location.href = "http://127.0.0.1:5500/frontend/dashboard.html";
+            redirectToHomepage();
         }
     }
 
     http.send(null);
+}
+
+const redirectToHomepage = () => {
+    location.href = "http://127.0.0.1:5500/frontend/dashboard.html";
 }
 
