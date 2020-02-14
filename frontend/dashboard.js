@@ -1,15 +1,15 @@
-(() => {
+(function () {
     const url = 'http://localhost:3000/widgets';
     const http = new XMLHttpRequest();
 
     http.open('GET', url);
     http.send();
 
-    http.onreadystatechange = () => {
+    http.onreadystatechange = function () {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
                 let data = JSON.parse(http.responseText);
-                data.allWidgets.forEach(widget => {
+                data.allWidgets.forEach(function (widget) {
                     createWidget(widget);
                 })
             } else {
@@ -19,7 +19,7 @@
     }
 })();
 
-const createWidget = (widget) => {
+function createWidget(widget) {
     const widgetContainer = document.createElement('article');
     widgetContainer.classList.add('widget')
     if (!widget.type) {
@@ -37,7 +37,7 @@ const createWidget = (widget) => {
     }
 }
 
-const createTable = (widget, widgetContainer) => {
+function createTable(widget, widgetContainer) {
     widgetContainer.classList.add('table');
     const table = document.createElement('table');
     table.classList.add('table-data');
@@ -73,13 +73,13 @@ const createTable = (widget, widgetContainer) => {
     tableHeader.title = 'Click to edit widget';
     widget.headerType ? tableHeader.classList.add('table-header', 'dark') : tableHeader.classList.add('table-header');
     const tableHeaderData = ['#', 'First Name', 'Last Name', 'Username'];
-    tableHeaderData.forEach(data => {
+    tableHeaderData.forEach(function (data) {
         const tableHeaderCol = document.createElement('th');
         tableHeaderCol.textContent = data;
         tableHeader.appendChild(tableHeaderCol);
     })
     table.appendChild(tableHeader);
-    widget.data.forEach(rowData => {
+    widget.data.forEach(function (rowData) {
         const tableRow = document.createElement('tr');
         const tableRowId = document.createElement('td');
         tableRowId.textContent = rowData.id;
@@ -99,7 +99,7 @@ const createTable = (widget, widgetContainer) => {
     return widgetContainer;
 }
 
-const createChat = (widget, widgetContainer) => {
+function createChat(widget, widgetContainer) {
     widgetContainer.classList.add('chat');
     const iconsContainer = document.createElement('div');
     iconsContainer.classList.add("edit-delete-icons-container");
@@ -130,7 +130,7 @@ const createChat = (widget, widgetContainer) => {
     widgetContainer.appendChild(chatSettings);
     const messages = document.createElement('div');
     messages.classList.add('messages');
-    widget.data.forEach(message => {
+    widget.data.forEach(function (message) {
         const messageContainer = document.createElement('div');
         messageContainer.classList.add('message');
         if (message.isMine) {
@@ -173,26 +173,26 @@ const createChat = (widget, widgetContainer) => {
     return widgetContainer;
 }
 
-const redirectToAddWidgetForm = () => {
+function redirectToAddWidgetForm() {
     location.href = 'http://localhost:3000/app/widget-form/';
 }
 
-const redirectToEditWidgetForm = (id) => {
+function redirectToEditWidgetForm(id) {
     location.href = 'http://localhost:3000/app/widget-form/' + id;
 }
 
-const toggleMobileMenu = () => {
+function toggleMobileMenu() {
     const mobileMenuContainer = document.getElementsByClassName('mobile-menu-container')[0];
     mobileMenuContainer.classList.toggle('change');
 }
 
-const deleteWidget = (id) => {
+function deleteWidget(id) {
     const http = new XMLHttpRequest();
     const url = 'http://localhost:3000/widgets/' + id;
 
     http.open('DELETE', url, true);
 
-    http.onreadystatechange = () => {
+    http.onreadystatechange = function () {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
                 location.reload();

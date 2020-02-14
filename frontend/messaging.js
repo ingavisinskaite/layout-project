@@ -1,4 +1,4 @@
-(() => {
+(function () {
     const messageWidgetType = 1;
     const url = 'http://localhost:3000/widgets/filter/' + messageWidgetType;
     const http = new XMLHttpRequest();
@@ -6,11 +6,11 @@
     http.open('GET', url);
     http.send();
 
-    http.onreadystatechange = () => {
+    http.onreadystatechange = function () {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
                 let data = JSON.parse(http.responseText);
-                data.filteredWidgets.forEach(widget => {
+                data.filteredWidgets.forEach(function (widget) {
                     createChat(widget);
                 })
             } else {
@@ -20,7 +20,7 @@
     }
 })();
 
-const createChat = (widget) => {
+function createChat(widget) {
     const widgetContainer = document.createElement('article');
     widgetContainer.classList.add('widget', 'chat');
     const chatSettings = document.createElement('div');
@@ -39,7 +39,7 @@ const createChat = (widget) => {
     widgetContainer.appendChild(chatSettings);
     const messages = document.createElement('div');
     messages.classList.add('messages');
-    widget.data.forEach(message => {
+    widget.data.forEach(function (message) {
         const messageContainer = document.createElement('div');
         messageContainer.classList.add('message');
         if (message.isMine) {
@@ -88,6 +88,6 @@ const createChat = (widget) => {
     }
 }
 
-const redirectToEditWidgetForm = (id) => {
+function redirectToEditWidgetForm(id) {
     location.href = 'http://localhost:3000/app/widget-form/' + id;
 }

@@ -1,4 +1,4 @@
-(() => {
+(function () {
     const tableWidgetType = 0;
     const url = 'http://localhost:3000/widgets/filter/' + tableWidgetType;
     const http = new XMLHttpRequest();
@@ -6,11 +6,11 @@
     http.open('GET', url);
     http.send();
 
-    http.onreadystatechange = () => {
+    http.onreadystatechange = function () {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
                 let data = JSON.parse(http.responseText);
-                data.filteredWidgets.forEach(widget => {
+                data.filteredWidgets.forEach(function (widget) {
                     createTable(widget);
                 })
             } else {
@@ -20,7 +20,7 @@
     }
 })();
 
-const createTable = (widget) => {
+function createTable(widget) {
     const widgetContainer = document.createElement('article');
     widgetContainer.classList.add('widget', 'table');
     const table = document.createElement('table');
@@ -44,13 +44,13 @@ const createTable = (widget) => {
     tableHeader.title = 'Click to edit widget';
     widget.headerType ? tableHeader.classList.add('table-header', 'dark') : tableHeader.classList.add('table-header');
     const tableHeaderData = ['#', 'First Name', 'Last Name', 'Username'];
-    tableHeaderData.forEach(data => {
+    tableHeaderData.forEach(function (data) {
         const tableHeaderCol = document.createElement('th');
         tableHeaderCol.textContent = data;
         tableHeader.appendChild(tableHeaderCol);
     })
     table.appendChild(tableHeader);
-    widget.data.forEach(rowData => {
+    widget.data.forEach(function (rowData) {
         const tableRow = document.createElement('tr');
         const tableRowId = document.createElement('td');
         tableRowId.textContent = rowData.id;
@@ -76,6 +76,6 @@ const createTable = (widget) => {
     }
 }
 
-const redirectToEditWidgetForm = (id) => {
+function redirectToEditWidgetForm(id) {
     location.href = 'http://localhost:3000/app/widget-form/' + id;
 }

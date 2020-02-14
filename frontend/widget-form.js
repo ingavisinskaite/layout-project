@@ -8,7 +8,7 @@ if (urlArr[urlArr.length - 1] !== "") {
 
 //POST
 
-const addNewWidget = (url) => {
+function addNewWidget(url) {
     const formValues = getFormValues();
     const title = formValues.title;
     const column = parseInt(formValues.column);
@@ -33,13 +33,13 @@ const addNewWidget = (url) => {
     postWidget(url, newWidget)
 }
 
-const postWidget = (url, widgetData) => {
+function postWidget(url, widgetData) {
     const http = new XMLHttpRequest();
 
     http.open('POST', url, true);
     http.setRequestHeader('Content-Type', 'application/json');
 
-    http.onreadystatechange = () => {
+    http.onreadystatechange = function () {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
                 redirectToHomepage();
@@ -55,13 +55,13 @@ const postWidget = (url, widgetData) => {
 
 //GET one widget by id
 
-const getWidget = (url) => {
+function getWidget(url) {
     const http = new XMLHttpRequest();
 
     http.open('GET', url);
     http.send();
 
-    http.onreadystatechange = () => {
+    http.onreadystatechange = function () {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
                 const widgetData = JSON.parse(http.responseText);
@@ -73,7 +73,7 @@ const getWidget = (url) => {
     }
 }
 
-const fillEditForm = (widget) => {
+function fillEditForm(widget) {
     const formFields = getFormFields();
     formFields.titleInput.value = widget.title;
     formFields.columnInput.value = widget.column;
@@ -84,7 +84,7 @@ const fillEditForm = (widget) => {
 
 //EDIT
 
-const editWidget = (url) => {
+function editWidget(url) {
     const formValues = getFormValues();
     const title = formValues.title;
     const column = parseInt(formValues.column);
@@ -109,13 +109,13 @@ const editWidget = (url) => {
     putWidget(url, editedWidget);
 }
 
-const putWidget = (url, widgetData) => {
+function putWidget(url, widgetData) {
     const http = new XMLHttpRequest();
 
     http.open('PUT', url, true);
     http.setRequestHeader('Content-Type', 'application/json');
 
-    http.onreadystatechange = () => {
+    http.onreadystatechange = function () {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
                 redirectToHomepage();
@@ -131,12 +131,12 @@ const putWidget = (url, widgetData) => {
 
 //DELETE
 
-const deleteWidget = (url) => {
+function deleteWidget(url) {
     const http = new XMLHttpRequest();
 
     http.open('DELETE', url, true);
 
-    http.onreadystatechange = () => {
+    http.onreadystatechange = function () {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
                 redirectToHomepage();
@@ -149,7 +149,7 @@ const deleteWidget = (url) => {
     http.send(null);
 }
 
-const checkIfEditOrAdd = () => {
+function checkIfEditOrAdd() {
     const formHeader = document.getElementById('form-header');
     const saveButton = document.getElementById('save-widget');
 
@@ -178,11 +178,11 @@ document.addEventListener('DOMContentLoaded', function () {
     checkIfEditOrAdd();
 }, false);
 
-const redirectToHomepage = () => {
+function redirectToHomepage() {
     window.location.replace(document.referrer);
 }
 
-const getFormFields = () => {
+function getFormFields() {
     return {
         titleInput: document.getElementById('title'),
         columnInput: document.getElementById('column-number'),
@@ -192,7 +192,7 @@ const getFormFields = () => {
     }
 }
 
-const getFormValues = () => {
+function getFormValues() {
     const formFields = getFormFields();
     return {
         title: formFields.titleInput.value,
