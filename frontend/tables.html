@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Clean UI</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="tables.js"></script>
+</head>
+
+<body>
+    <main class="homepage">
+        <aside id="sidenav">
+            <div id="logo">
+                <img src="logo.png" id="logo-img">
+                CLEAN UI
+            </div>
+            <nav class="links desktop">
+                <ul>
+                    <li class="link-with-icon arrow-right settings-icon"><a href="/app/dashboard">Theme
+                            Settings</a></li>
+                    <li class="link-with-icon documentation"><a href="/app/dashboard">Documentation</a></li>
+                </ul>
+                <hr>
+                <ul>
+                    <li class="link-with-icon home"><a href="/app/dashboard">Dashboard</a></li>
+                </ul>
+                <hr>
+                <ul>
+                    <li class="link-with-icon profile"><a href="/app/dashboard">Profile</a></li>
+                    <li class="link-with-icon messaging"><a href="/app/messaging">Messaging</a></li>
+                    <li class="link-with-icon mail"><a href="/app/dashboard">Mail</a></li>
+                    <li class="link-with-icon calendar"><a href="/app/dashboard">Calendar</a></li>
+                    <li class="link-with-icon gallery"><a href="/app/dashboard">Gallery</a></li>
+                </ul>
+                <hr>
+                <ul>
+                    <li class="link-with-icon arrow-right layout"><a href="/app/dashboard">Layout</a></li>
+                    <li class="link-with-icon arrow-right icons"><a href="/app/dashboard">Icons</a></li>
+                    <li class="link-with-icon typography"><a href="/app/dashboard">Typography</a></li>
+                </ul>
+                <hr>
+                <ul>
+                    <li class="link arrow-right forms"><a href="/app/dashboard">Forms</a></li>
+                    <li class="link arrow-right components"><a href="/app/dashboard">Components</a></li>
+                    <li class="link arrow-right tables"><a href="/app/tables">Tables</a></li>
+                    <li class="link arrow-right charts"><a href="/app/dashboard">Charts</a></li>
+                </ul>
+                <hr>
+                <ul>
+                    <li class="link-with-icon arrow-right pages"><a href="/app/dashboard">Pages</a></li>
+                </ul>
+                <hr>
+                <ul>
+                    <li class="disabled-item"><a>Disabled Item</a></li>
+                    <li class="link arrow-right infinity-nested"><a href="/app/dashboard">Infinity Nested</a>
+                    </li>
+                </ul>
+                <hr>
+                <div id="solar-system">
+                    <p>Solar System</p>
+                    <ul>
+                        <li class="planet earth"><a href="/app/dashboard">Earth</a></li>
+                        <li class="planet mars"><a href="/app/dashboard">Mars</a></li>
+                        <li class="planet mercury"><a href="/app/dashboard">Mercury</a></li>
+                        <li class="planet jupiter"><a href="/app/dashboard">Jupiter</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <nav class="links tablet">
+                <ul>
+                    <li class="link-with-icon settings-icon"></li>
+                    <li class="link-with-icon documentation"></li>
+                    <li class="link-with-icon home"></li>
+                    <li class="link-with-icon profile"></li>
+                    <li class="link-with-icon messaging"></li>
+                    <li class="link-with-icon mail"></li>
+                    <li class="link-with-icon calendar"></li>
+                    <li class="link-with-icon gallery"></li>
+                    <li class="link-with-icon layout"></li>
+                    <li class="link-with-icon icons"></li>
+                    <li class="link-with-icon typography"></li>
+                    <li class="link-with-icon pages"></li>
+                </ul>
+            </nav>
+            <nav class="mobile" onclick="toggleMobileMenu()">
+                <div class="mobile-menu-container">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </nav>
+        </aside>
+        <div class="container">
+            <nav id="navbar">
+                <div id="navbar-dropdowns-container">
+                    <div class="navbar-dropdown navbar-issues arrow-bottom">Issues History</div>
+                    <div class="navbar-dropdown navbar-dashboards arrow-bottom">Dashboards</div>
+                    <div class="navbar-dropdown navbar-projects arrow-bottom">Projects</div>
+                </div>
+                <div id="navbar-search-profile-container">
+                    <input placeholder="Search.." id="navbar-search" />
+                    <div id="navbar-profile"></div>
+                    <div class="arrow-bottom"></div>
+                </div>
+            </nav>
+            <div id="dashboard">
+                <div id="columns">
+                    <section id="column1">
+                    </section>
+                    <section id="column2">
+                    </section>
+                    <section id="column3">
+                        <div id="column3-widgets">
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
