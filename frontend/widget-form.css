@@ -13,7 +13,7 @@ body {
   border-radius: 5px;
 }
 
-.widget-form {
+#widget-form {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -39,7 +39,7 @@ body {
 #header-type,
 #type,
 #save-widget,
-#delete-widget {
+.delete-widget {
   width: calc(30% + 12px);
 }
 
@@ -49,7 +49,7 @@ body {
   cursor: pointer;
 }
 
-#delete-widget {
+.delete-widget {
   background-color: #b91f1f;
   color: #fff;
   cursor: pointer;
