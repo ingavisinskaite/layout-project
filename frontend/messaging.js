@@ -6,12 +6,16 @@
     http.open('GET', url);
     http.send();
 
-    http.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let data = JSON.parse(http.responseText);
-            data.filteredWidgets.forEach(widget => {
-                createChat(widget);
-            })
+    http.onreadystatechange = () => {
+        if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+                let data = JSON.parse(http.responseText);
+                data.filteredWidgets.forEach(widget => {
+                    createChat(widget);
+                })
+            } else {
+                alert('There was a problem with the request.');
+            }
         }
     }
 })();

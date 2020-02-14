@@ -6,11 +6,15 @@
     http.send();
 
     http.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let data = JSON.parse(http.responseText);
-            data.allWidgets.forEach(widget => {
-                createWidget(widget)
-            })
+        if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+                let data = JSON.parse(http.responseText);
+                data.allWidgets.forEach(widget => {
+                    createWidget(widget);
+                })
+            } else {
+                alert('There was a problem with the request.');
+            }
         }
     }
 })();

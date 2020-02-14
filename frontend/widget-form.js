@@ -36,9 +36,13 @@ const postWidget = (url, widgetData) => {
     http.open('POST', url, true);
     http.setRequestHeader('Content-Type', 'application/json');
 
-    http.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            redirectToHomepage();
+    http.onreadystatechange = () => {
+        if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+                redirectToHomepage();
+            } else {
+                alert('There was a problem with the request.');
+            }
         }
     }
     widgetData = JSON.stringify(widgetData);
@@ -54,10 +58,14 @@ const getWidget = () => {
     http.open('GET', url);
     http.send();
 
-    http.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            const widgetData = JSON.parse(http.responseText);
-            fillEditForm(widgetData.widgetToEdit);
+    http.onreadystatechange = () => {
+        if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+                const widgetData = JSON.parse(http.responseText);
+                fillEditForm(widgetData.widgetToEdit);
+            } else {
+                alert('There was a problem with the request.');
+            }
         }
     }
 }
@@ -108,9 +116,13 @@ const putWidget = (widgetData) => {
     http.open('PUT', url, true);
     http.setRequestHeader('Content-Type', 'application/json');
 
-    http.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            redirectToHomepage();
+    http.onreadystatechange = () => {
+        if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+                redirectToHomepage();
+            } else {
+                alert('There was a problem with the request.');
+            }
         }
     }
     widgetData = JSON.stringify(widgetData);
@@ -125,9 +137,13 @@ const deleteWidget = () => {
 
     http.open('DELETE', url, true);
 
-    http.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            redirectToHomepage();
+    http.onreadystatechange = () => {
+        if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+                redirectToHomepage();
+            } else {
+                alert('There was a problem with the request.');
+            }
         }
     }
 
