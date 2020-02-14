@@ -267,13 +267,15 @@ tr:hover:not(.table-header) {
 }
 
 .link:hover,
+.planet:hover,
 .link-with-icon:hover:not(.disabled-item) {
   background-color: #343232;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.link {
+.link,
+.planet {
   height: 36px;
   padding-left: 8px;
 }
@@ -535,8 +537,7 @@ hr {
 }
 
 #column3-widgets .widget {
-  flex: 1 0 30%;
-  max-height: 300px;
+  flex: 1 0 20%;
 }
 
 #column3-innerSection {
