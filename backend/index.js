@@ -51,6 +51,16 @@ app.get("/widgets", cors(corsOptions), (req, res) => {
     })
 });
 
+app.get("/widgets/filter/:type", cors(corsOptions), (req, res) => {
+    const filter = Number(req.params.type);
+
+    filteredWidgets = allWidgets.filter(widget => widget.type === filter);
+
+    res.json({
+        filteredWidgets
+    })
+});
+
 app.get("/widgets/:id", cors(corsOptions), (req, res) => {
     const id = Number(req.params.id);
     let widgetToEdit = allWidgets.find(widget => widget.id === id);

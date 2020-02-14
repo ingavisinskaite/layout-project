@@ -102,7 +102,7 @@ tr:hover:not(.table-header) {
   overflow-y: auto;
   width: 90%;
   margin: 0 auto;
-  max-height: 300px;
+  max-height: 400px;
 }
 
 .message {
@@ -468,6 +468,9 @@ hr {
 }
 
 /*dashboard*/
+.container {
+  width: calc(100% - 200px);
+}
 
 #dashboard {
   display: flex;
@@ -726,6 +729,10 @@ hr {
 
   #dashboard {
     margin-top: 0;
+  }
+
+  .container {
+    width: 100%;
   }
 
   #sidenav {

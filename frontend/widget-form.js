@@ -158,10 +158,9 @@ const checkIfEditOrAdd = () => {
     }
 }
 
-window.onload = function () {
+document.addEventListener('DOMContentLoaded', function () {
     checkIfEditOrAdd();
-}
-
+}, false);
 
 const redirectToHomepage = () => {
     location.href = 'http://localhost:3000/app/dashboard/';
