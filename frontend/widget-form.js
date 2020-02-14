@@ -1,23 +1,26 @@
-let urlArr = window.location.href.split("/");
-let id = Number(urlArr[urlArr.length - 1]);
-const url = 'http://localhost:3000/widgets/' + id;
+const urlArr = window.location.href.split('/');
+let id;
+if (urlArr[urlArr.length - 1] !== "") {
+    id = Number(urlArr[urlArr.length - 1]);
+} else {
+    id = urlArr[urlArr.length - 1];
+}
 
 //POST
 
-const addNewWidget = () => {
-    const title = document.getElementById('title').value;
-    const column = parseInt(document.getElementById('column-number').value);
-    const type = parseInt(document.getElementById('type').value);
-    const headerType = parseInt(document.getElementById('header-type').value);
-    const data = JSON.parse(document.getElementById('data').value);
+const addNewWidget = (url) => {
+    const formValues = getFormValues();
+    const title = formValues.title;
+    const column = parseInt(formValues.column);
+    const type = parseInt(formValues.type);
+    const headerType = parseInt(formValues.headerType);
+    const data = JSON.parse(formValues.data);
     let dataArray = [];
     if (!(data instanceof Array)) {
         dataArray.push(data);
     } else {
         dataArray = data;
     }
-
-    const url = 'http://localhost:3000/widgets';
 
     const newWidget = {
         column,
@@ -27,7 +30,7 @@ const addNewWidget = () => {
         dataArray
     }
 
-    postWidget(url, newWidget);
+    postWidget(url, newWidget)
 }
 
 const postWidget = (url, widgetData) => {
@@ -52,7 +55,7 @@ const postWidget = (url, widgetData) => {
 
 //GET one widget by id
 
-const getWidget = () => {
+const getWidget = (url) => {
     const http = new XMLHttpRequest();
 
     http.open('GET', url);
@@ -71,33 +74,29 @@ const getWidget = () => {
 }
 
 const fillEditForm = (widget) => {
-    const title = document.getElementById('title')
-    title.value = widget.title;
-    const column = document.getElementById('column-number');
-    column.value = widget.column;
-    const type = document.getElementById('type');
-    type.value = widget.type;
-    const headerType = document.getElementById('header-type');
-    headerType.value = widget.headerType;
-    const data = document.getElementById('data');
-    data.value = JSON.stringify(widget.data);
+    const formFields = getFormFields();
+    formFields.titleInput.value = widget.title;
+    formFields.columnInput.value = widget.column;
+    formFields.typeSelect.value = widget.type;
+    formFields.headerTypeSelect.value = widget.headerType;
+    formFields.dataInput.value = JSON.stringify(widget.data);
 }
 
 //EDIT
 
-const editWidget = () => {
-    const title = document.getElementById('title').value;
-    const column = parseInt(document.getElementById('column-number').value);
-    const type = parseInt(document.getElementById('type').value);
-    const headerType = parseInt(document.getElementById('header-type').value);
-    const data = JSON.parse(document.getElementById('data').value);
+const editWidget = (url) => {
+    const formValues = getFormValues();
+    const title = formValues.title;
+    const column = parseInt(formValues.column);
+    const type = parseInt(formValues.type);
+    const headerType = parseInt(formValues.headerType);
+    const data = JSON.parse(formValues.data);
     let dataArray = [];
     if (!(data instanceof Array)) {
         dataArray.push(data);
     } else {
         dataArray = data;
     }
-
 
     const editedWidget = {
         column,
@@ -107,10 +106,10 @@ const editWidget = () => {
         dataArray
     }
 
-    putWidget(editedWidget);
+    putWidget(url, editedWidget);
 }
 
-const putWidget = (widgetData) => {
+const putWidget = (url, widgetData) => {
     const http = new XMLHttpRequest();
 
     http.open('PUT', url, true);
@@ -132,7 +131,7 @@ const putWidget = (widgetData) => {
 
 //DELETE
 
-const deleteWidget = () => {
+const deleteWidget = (url) => {
     const http = new XMLHttpRequest();
 
     http.open('DELETE', url, true);
@@ -151,26 +150,27 @@ const deleteWidget = () => {
 }
 
 const checkIfEditOrAdd = () => {
-    const formHeader = document.getElementById("form-header");
-    const saveButton = document.getElementById("save-widget");
+    const formHeader = document.getElementById('form-header');
+    const saveButton = document.getElementById('save-widget');
 
-    if (id > 0) {
-        console.log("im from edit");
-        getWidget();
-        formHeader.textContent = "Edit widget";
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
-        deleteButton.classList.add("field", "delete-widget");
-        deleteButton.onclick = function () { deleteWidget() };
-        const widgetForm = document.getElementById("widget-form");
+    if (id !== "") {
+        const url = 'http://localhost:3000/widgets/' + id;
+        getWidget(url);
+        formHeader.textContent = 'Edit widget';
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'DELETE';
+        deleteButton.classList.add('field', 'delete-widget');
+        deleteButton.onclick = function () { deleteWidget(url) };
+        const widgetForm = document.getElementById('widget-form');
         widgetForm.appendChild(deleteButton);
-        saveButton.textContent = "Edit";
-        saveButton.onclick = function () { editWidget() };
+        saveButton.textContent = 'EDIT';
+        saveButton.onclick = function () { editWidget(url) };
+
     } else {
-        console.log("im from add");
-        formHeader.textContent = "Add new widget";
-        saveButton.textContent = "Add";
-        saveButton.onclick = function () { addNewWidget() };
+        const url = 'http://localhost:3000/widgets/';
+        formHeader.textContent = 'Add new widget';
+        saveButton.textContent = 'ADD';
+        saveButton.onclick = function () { addNewWidget(url) };
     }
 }
 
@@ -179,5 +179,27 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 const redirectToHomepage = () => {
-    location.href = 'http://localhost:3000/app/dashboard/';
+    window.location.replace(document.referrer);
 }
+
+const getFormFields = () => {
+    return {
+        titleInput: document.getElementById('title'),
+        columnInput: document.getElementById('column-number'),
+        typeSelect: document.getElementById('type'),
+        headerTypeSelect: document.getElementById('header-type'),
+        dataInput: document.getElementById('data')
+    }
+}
+
+const getFormValues = () => {
+    const formFields = getFormFields();
+    return {
+        title: formFields.titleInput.value,
+        column: formFields.columnInput.value,
+        type: formFields.typeSelect.value,
+        headerType: formFields.headerTypeSelect.value,
+        data: formFields.dataInput.value
+    }
+}
+

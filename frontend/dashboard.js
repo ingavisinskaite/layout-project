@@ -5,7 +5,7 @@
     http.open('GET', url);
     http.send();
 
-    http.onreadystatechange = function () {
+    http.onreadystatechange = () => {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
                 let data = JSON.parse(http.responseText);
@@ -41,6 +41,19 @@ const createTable = (widget, widgetContainer) => {
     widgetContainer.classList.add('table');
     const table = document.createElement('table');
     table.classList.add('table-data');
+    const iconsContainer = document.createElement('div');
+    iconsContainer.classList.add("edit-delete-icons-container");
+    const editIcon = document.createElement('img');
+    editIcon.classList.add("edit-icon");
+    editIcon.src = 'pencil.svg';
+    editIcon.onclick = function () { redirectToEditWidgetForm(widget.id) }
+    iconsContainer.appendChild(editIcon);
+    const deleteIcon = document.createElement('img');
+    deleteIcon.src = 'delete.svg';
+    deleteIcon.onclick = function () { deleteWidget(widget.id) };
+    deleteIcon.classList.add('delete-icon');
+    iconsContainer.appendChild(deleteIcon);
+    widgetContainer.appendChild(iconsContainer);
     if (widget.settings) {
         table.classList.add('table-with-settings')
         const tableSettings = document.createElement('div');
@@ -88,6 +101,19 @@ const createTable = (widget, widgetContainer) => {
 
 const createChat = (widget, widgetContainer) => {
     widgetContainer.classList.add('chat');
+    const iconsContainer = document.createElement('div');
+    iconsContainer.classList.add("edit-delete-icons-container");
+    const editIcon = document.createElement('img');
+    editIcon.classList.add("edit-icon");
+    editIcon.src = 'pencil.svg';
+    editIcon.onclick = function () { redirectToEditWidgetForm(widget.id) }
+    iconsContainer.appendChild(editIcon);
+    const deleteIcon = document.createElement('img');
+    deleteIcon.src = 'delete.svg';
+    deleteIcon.onclick = function () { deleteWidget(widget.id) };
+    deleteIcon.classList.add('delete-icon');
+    iconsContainer.appendChild(deleteIcon);
+    widgetContainer.appendChild(iconsContainer);
     const chatSettings = document.createElement('div');
     chatSettings.classList.add('settings');
     if (widget.headerType) {
@@ -158,4 +184,23 @@ const redirectToEditWidgetForm = (id) => {
 const toggleMobileMenu = () => {
     const mobileMenuContainer = document.getElementsByClassName('mobile-menu-container')[0];
     mobileMenuContainer.classList.toggle('change');
+}
+
+const deleteWidget = (id) => {
+    const http = new XMLHttpRequest();
+    const url = 'http://localhost:3000/widgets/' + id;
+
+    http.open('DELETE', url, true);
+
+    http.onreadystatechange = () => {
+        if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+                location.reload();
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    }
+
+    http.send(null);
 }

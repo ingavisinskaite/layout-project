@@ -87,3 +87,7 @@ const createChat = (widget) => {
         column.appendChild(widgetContainer);
     }
 }
+
+const redirectToEditWidgetForm = (id) => {
+    location.href = 'http://localhost:3000/app/widget-form/' + id;
+}

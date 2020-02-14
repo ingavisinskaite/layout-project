@@ -40,6 +40,10 @@ body {
   transition: box-shadow ease-in-out 0.2s;
 }
 
+.widget:hover .edit-delete-icons-container {
+  display: block;
+}
+
 .header,
 .settings {
   height: 50px;
@@ -52,6 +56,10 @@ body {
 }
 
 /*table*/
+
+.table {
+  max-height: 500px;
+}
 
 .table-data {
   width: 100%;
@@ -92,6 +100,7 @@ tr:hover:not(.table-header) {
 .chat {
   display: flex;
   flex-direction: column;
+  max-height: 500px;
 }
 
 .header {
@@ -495,7 +504,6 @@ hr {
 
 #column1 article {
   flex: 1 0 auto;
-  max-height: 700px;
 }
 
 /*column-2*/
@@ -510,7 +518,6 @@ hr {
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-height: 600px;
 }
 
 /*column-3*/
@@ -688,6 +695,33 @@ hr {
   background-image: url(/assets/icon-spritesheet.png);
   background-repeat: no-repeat;
   background-position: -338px -134px;
+}
+
+/*edit and delete buttons */
+.edit-delete-icons-container {
+  position: relative;
+  display: none;
+  background-color: rgba(216, 215, 219, 0.5);
+  height: 50px;
+  position: absolute;
+  width: 90px;
+}
+
+.edit-icon,
+.delete-icon {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 14px;
+  cursor: pointer;
+}
+
+.edit-icon {
+  left: 10px;
+}
+
+.delete-icon {
+  left: 48px;
 }
 
 @media screen and (max-width: 1000px) {
