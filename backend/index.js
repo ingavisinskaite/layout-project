@@ -14,67 +14,37 @@ const corsOptions = {
         if (allowedOrigins.indexOf(origin) !== -1) {
             callback(null, true);
         } else {
-            callback(new Error("Not allowed by CORS"));
+            callback(null, true);
         }
     }
 };
 
 const port = 3000;
 
-app.use("/dashboard/*", (req, res) => {
-    console.log(req.params);
-    let fileToServe;
-    if (req.params && req.params[0]) {
-        if (req.params[0].indexOf("css") > 0 || req.params[0].indexOf("js") > 0) {
-            fileToServe = req.params[0];
-        } else if (req.params[0].indexOf("svg") > 0 || req.params[0].indexOf("png") > 0) {
-            fileToServe = "assets/" + req.params[0];
-        } else {
-            fileToServe = "dashboard.html";
-        }
-    } else {
-        fileToServe = "dashboard.html";
-    }
-    res.sendFile(fileToServe, { root: "../frontend/" });
-});
+app.use("/assets/icon-spritesheet.png", (req, res) => {
+    res.sendFile("/assets/icon-spritesheet.png", { root: "../frontend" })
+})
 
-app.use("/form/*", (req, res) => {
-    console.log(req.params);
+app.use("/app/", (req, res) => {
     let fileToServe;
-    if (req.params && req.params[0]) {
-        if (req.params[0].indexOf("css") > 0 || req.params[0].indexOf("js") > 0) {
-            fileToServe = req.params[0];
-        } else if (req.params[0].indexOf("svg") > 0 || req.params[0].indexOf("png") > 0) {
-            fileToServe = "assets/" + req.params[0];
-        } else {
-            fileToServe = "add-widget.html";
-        }
+    if (req.path.indexOf(".css") > 0 || req.path.indexOf(".js") > 0) {
+        const urlParts = req.path.split('/');
+        const file = urlParts[urlParts.length - 1];
+        fileToServe = `/${file}`
+    } else if (req.path.indexOf(".png") > 0 || req.path.indexOf(".svg") > 0) {
+        const urlParts = req.path.split('/');
+        const file = urlParts[urlParts.length - 1];
+        fileToServe = `/assets/${file}`;
     } else {
-        fileToServe = "add-widget.html";
+        const file = req.path.split('/')[1];
+        fileToServe = `/${file}.html`;
     }
-    res.sendFile(fileToServe, { root: "../frontend/" });
-});
-
-app.use("/form/:id/*", (req, res) => {
-    console.log(req.params);
-    let fileToServe;
-    if (req.params && req.params[0]) {
-        if (req.params[0].indexOf("css") > 0 || req.params[0].indexOf("js") > 0) {
-            fileToServe = req.params[0];
-        } else if (req.params[0].indexOf("svg") > 0 || req.params[0].indexOf("png") > 0) {
-            fileToServe = "assets/" + req.params[0];
-        } else {
-            fileToServe = "edit-widget.html";
-        }
-    } else {
-        fileToServe = "edit-widget.html";
-    }
-    res.sendFile(fileToServe, { root: "../frontend/" });
-});
+    res.sendFile(fileToServe, { root: "../frontend" })
+})
 
 app.options("*", cors(corsOptions));
 
-app.get("/widgets", (req, res) => {
+app.get("/widgets", cors(corsOptions), (req, res) => {
 
     res.json({
         allWidgets
@@ -90,7 +60,7 @@ app.get("/widgets/:id", cors(corsOptions), (req, res) => {
     })
 });
 
-app.post("/widgets", cors(corsOptions), (req, res) => {
+app.post("/widgets", (req, res) => {
     const id = initialWidgets[initialWidgets.length - 1].id + 1;
     const column = req.body.column;
     const type = req.body.type;

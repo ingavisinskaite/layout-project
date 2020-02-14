@@ -149,11 +149,11 @@ window.onload = function () {
 }
 
 const redirectToAddWidgetForm = () => {
-    location.href = 'http://localhost:3000/form/';
+    location.href = 'http://localhost:3000/app/add-widget/';
 }
 
 const redirectToEditWidgetForm = (id) => {
-    location.href = 'http://localhost:3000/form/' + id;
+    location.href = 'http://localhost:3000/app/add-widget/' + id;
 }
 
 const toggleMobileMenu = () => {

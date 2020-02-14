@@ -42,7 +42,6 @@ const postWidget = (url, widgetData) => {
 }
 
 const redirectToHomepage = () => {
-    location.href = 'http://localhost:3000/dashboard/';
+    location.href = 'http://localhost:3000/app/dashboard/';
 }
-
 
