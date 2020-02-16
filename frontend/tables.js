@@ -1,6 +1,9 @@
 (() => {
-    const tableWidgetType = 0;
-    const url = 'http://localhost:3000/widgets/filter/' + tableWidgetType;
+    const WidgetType = {
+        TABLE: 0,
+        CHAT: 1
+    }
+    const url = 'http://localhost:3000/widgets/filter/' + WidgetType.TABLE;
     const http = new XMLHttpRequest();
 
     http.open('GET', url);
@@ -25,10 +28,23 @@ const createTable = (widget) => {
     widgetContainer.classList.add('widget', 'table');
     const table = document.createElement('table');
     table.classList.add('table-data');
+    const iconsContainer = document.createElement('div');
+    iconsContainer.classList.add("edit-delete-icons-container");
+    const editIcon = document.createElement('img');
+    editIcon.classList.add("edit-icon");
+    editIcon.src = 'pencil.svg';
+    editIcon.onclick = () => redirectToWidgetForm(widget.id);
+    iconsContainer.appendChild(editIcon);
+    const deleteIcon = document.createElement('img');
+    deleteIcon.src = 'delete.svg';
+    deleteIcon.onclick = () => deleteWidget(widget.id);
+    deleteIcon.classList.add('delete-icon');
+    iconsContainer.appendChild(deleteIcon);
+    widgetContainer.appendChild(iconsContainer);
     if (widget.settings) {
         table.classList.add('table-with-settings')
         const tableSettings = document.createElement('div');
-        tableSettings.onclick = () => redirectToEditWidgetForm(widget.id);
+        tableSettings.onclick = () => redirectToWidgetForm(widget.id);
         tableSettings.title = 'Click to edit widget';
         tableSettings.classList.add('settings');
         const tableType = document.createElement('p');
@@ -40,9 +56,13 @@ const createTable = (widget) => {
         widgetContainer.appendChild(tableSettings);
     }
     const tableHeader = document.createElement('tr');
-    tableHeader.onclick = () => redirectToEditWidgetForm(widget.id);
+    tableHeader.onclick = () => redirectToWidgetForm(widget.id);
     tableHeader.title = 'Click to edit widget';
-    widget.headerType ? tableHeader.classList.add('table-header', 'dark') : tableHeader.classList.add('table-header');
+    if (widget.headerType === HeaderType.DARK) {
+        tableHeader.classList.add('table-header', 'dark');
+    } else {
+        tableHeader.classList.add('table-header');
+    }
     const tableHeaderData = ['#', 'First Name', 'Last Name', 'Username'];
     tableHeaderData.forEach(data => {
         const tableHeaderCol = document.createElement('th');
@@ -76,6 +96,34 @@ const createTable = (widget) => {
     }
 }
 
-const redirectToEditWidgetForm = (id) => {
+const deleteWidget = (id) => {
+    const http = new XMLHttpRequest();
+    const url = 'http://localhost:3000/widgets/' + id;
+
+    http.open('DELETE', url, true);
+
+    http.onreadystatechange = () => {
+        if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+                location.reload();
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    }
+
+    http.send(null);
+}
+
+const redirectToWidgetForm = (id) => {
     location.href = 'http://localhost:3000/app/widget-form/' + id;
+}
+
+const redirectToHomepage = () => {
+    location.href = 'http://localhost:3000/app/dashboard/';
+}
+
+const HeaderType = {
+    LIGHT: 0,
+    DARK: 1
 }

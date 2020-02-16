@@ -121,7 +121,7 @@ tr:hover:not(.table-header) {
   align-items: flex-start;
 }
 
-.message.mine {
+.message.right-side {
   flex-direction: row-reverse;
 }
 
@@ -232,6 +232,7 @@ tr:hover:not(.table-header) {
   color: white;
   font-weight: bold;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
 #logo-img {
@@ -289,9 +290,12 @@ tr:hover:not(.table-header) {
 }
 
 .link a,
-.link-with-icon a {
+.link-with-icon a,
+.planet a {
   text-decoration: none;
   color: #ffffff;
+  width: 100%;
+  padding: 8px 0;
 }
 
 .documentation::before {

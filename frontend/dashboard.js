@@ -1,8 +1,10 @@
+const baseAPIUrl = 'http://localhost:3000/widgets/';
+const widgetFormUrl = 'http://localhost:3000/app/widget-form/';
+
 (() => {
-    const url = 'http://localhost:3000/widgets';
     const http = new XMLHttpRequest();
 
-    http.open('GET', url);
+    http.open('GET', baseAPIUrl);
     http.send();
 
     http.onreadystatechange = () => {
@@ -46,7 +48,7 @@ const createTable = (widget, widgetContainer) => {
     const editIcon = document.createElement('img');
     editIcon.classList.add("edit-icon");
     editIcon.src = 'pencil.svg';
-    editIcon.onclick = () => redirectToEditWidgetForm(widget.id);
+    editIcon.onclick = () => redirectToWidgetForm(widget.id);
     iconsContainer.appendChild(editIcon);
     const deleteIcon = document.createElement('img');
     deleteIcon.src = 'delete.svg';
@@ -57,7 +59,7 @@ const createTable = (widget, widgetContainer) => {
     if (widget.settings) {
         table.classList.add('table-with-settings')
         const tableSettings = document.createElement('div');
-        tableSettings.onclick = () => redirectToEditWidgetForm(widget.id);
+        tableSettings.onclick = () => redirectToWidgetForm(widget.id);
         tableSettings.title = 'Click to edit widget';
         tableSettings.classList.add('settings');
         const tableType = document.createElement('p');
@@ -69,7 +71,7 @@ const createTable = (widget, widgetContainer) => {
         widgetContainer.appendChild(tableSettings);
     }
     const tableHeader = document.createElement('tr');
-    tableHeader.onclick = () => redirectToEditWidgetForm(widget.id);
+    tableHeader.onclick = () => redirectToWidgetForm(widget.id);
     tableHeader.title = 'Click to edit widget';
     widget.headerType ? tableHeader.classList.add('table-header', 'dark') : tableHeader.classList.add('table-header');
     const tableHeaderData = ['#', 'First Name', 'Last Name', 'Username'];
@@ -106,7 +108,7 @@ const createChat = (widget, widgetContainer) => {
     const editIcon = document.createElement('img');
     editIcon.classList.add("edit-icon");
     editIcon.src = 'pencil.svg';
-    editIcon.onclick = () => redirectToEditWidgetForm(widget.id);
+    editIcon.onclick = () => redirectToWidgetForm(widget.id);
     iconsContainer.appendChild(editIcon);
     const deleteIcon = document.createElement('img');
     deleteIcon.src = 'delete.svg';
@@ -119,7 +121,7 @@ const createChat = (widget, widgetContainer) => {
     if (widget.headerType === HeaderType.DARK) {
         chatSettings.classList.add('dark');
     }
-    chatSettings.onclick = () => redirectToEditWidgetForm(widget.id);
+    chatSettings.onclick = () => redirectToWidgetForm(widget.id);
     chatSettings.title = 'Click to edit widget';
     const chatType = document.createElement('p');
     chatType.textContent = 'Conversation: ' + widget.title;
@@ -133,12 +135,12 @@ const createChat = (widget, widgetContainer) => {
     widget.data.forEach(message => {
         const messageContainer = document.createElement('div');
         messageContainer.classList.add('message');
-        if (message.isMine) {
-            messageContainer.classList.add('mine');
+        if (message.isOnRightSide) {
+            messageContainer.classList.add('right-side');
         }
         const personImgContainer = document.createElement('figure');
         personImgContainer.classList.add('person');
-        message.isMine ? personImgContainer.classList.add('right') : personImgContainer.classList.add('left');
+        message.isOnRightSide ? personImgContainer.classList.add('right') : personImgContainer.classList.add('left');
         const personImg = document.createElement('img');
         personImg.classList.add('person-img');
         personImg.src = message.img;
@@ -146,7 +148,7 @@ const createChat = (widget, widgetContainer) => {
         messageContainer.appendChild(personImgContainer);
         const messageBubble = document.createElement('div');
         messageBubble.classList.add('message-bubble', 'triangle')
-        message.isMine ? messageBubble.classList.add('right') : messageBubble.classList.add('left');
+        message.isOnRightSide ? messageBubble.classList.add('right') : messageBubble.classList.add('left');
         const person = document.createElement('p');
         person.textContent = message.author;
         messageBubble.appendChild(person);
@@ -173,12 +175,16 @@ const createChat = (widget, widgetContainer) => {
     return widgetContainer;
 }
 
-const redirectToAddWidgetForm = () => {
-    location.href = 'http://localhost:3000/app/widget-form/';
+const redirectToWidgetForm = (id = null) => {
+    if(id !== null) {
+        location.href = widgetFormUrl + id;
+    } else {
+        location.href = widgetFormUrl;
+    }
 }
 
-const redirectToEditWidgetForm = (id) => {
-    location.href = 'http://localhost:3000/app/widget-form/' + id;
+const redirectToHomepage = () => {
+    location.href = 'http://localhost:3000/app/dashboard/';
 }
 
 const toggleMobileMenu = () => {
@@ -188,7 +194,7 @@ const toggleMobileMenu = () => {
 
 const deleteWidget = (id) => {
     const http = new XMLHttpRequest();
-    const url = 'http://localhost:3000/widgets/' + id;
+    const url = baseAPIUrl + id;
 
     http.open('DELETE', url, true);
 
