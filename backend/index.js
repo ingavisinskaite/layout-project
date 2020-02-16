@@ -21,11 +21,12 @@ const corsOptions = {
 
 const port = 3000;
 
-app.use("/assets/icon-spritesheet.png", (req, res) => {
-    res.sendFile("/assets/icon-spritesheet.png", { root: "../frontend" })
+app.use("/assets", (req, res) => {
+    const assetFile = req.path;
+    res.sendFile(`/assets${assetFile}`, { root: "../frontend" })
 })
 
-app.use("/app/", (req, res) => {
+app.use("/app", (req, res) => {
     let fileToServe;
     if (req.path.indexOf(".css") > 0 || req.path.indexOf(".js") > 0) {
         const urlParts = req.path.split('/');

@@ -21,8 +21,8 @@
 
 const createWidget = (widget) => {
     const widgetContainer = document.createElement('article');
-    widgetContainer.classList.add('widget')
-    if (!widget.type) {
+    widgetContainer.classList.add('widget');
+    if (widget.type === WidgetType.TABLE) {
         createTable(widget, widgetContainer);
     } else {
         createChat(widget, widgetContainer)
@@ -46,18 +46,18 @@ const createTable = (widget, widgetContainer) => {
     const editIcon = document.createElement('img');
     editIcon.classList.add("edit-icon");
     editIcon.src = 'pencil.svg';
-    editIcon.onclick = function () { redirectToEditWidgetForm(widget.id) }
+    editIcon.onclick = () => redirectToEditWidgetForm(widget.id);
     iconsContainer.appendChild(editIcon);
     const deleteIcon = document.createElement('img');
     deleteIcon.src = 'delete.svg';
-    deleteIcon.onclick = function () { deleteWidget(widget.id) };
+    deleteIcon.onclick = () => deleteWidget(widget.id);
     deleteIcon.classList.add('delete-icon');
     iconsContainer.appendChild(deleteIcon);
     widgetContainer.appendChild(iconsContainer);
     if (widget.settings) {
         table.classList.add('table-with-settings')
         const tableSettings = document.createElement('div');
-        tableSettings.onclick = function () { redirectToEditWidgetForm(widget.id) };
+        tableSettings.onclick = () => redirectToEditWidgetForm(widget.id);
         tableSettings.title = 'Click to edit widget';
         tableSettings.classList.add('settings');
         const tableType = document.createElement('p');
@@ -69,7 +69,7 @@ const createTable = (widget, widgetContainer) => {
         widgetContainer.appendChild(tableSettings);
     }
     const tableHeader = document.createElement('tr');
-    tableHeader.onclick = function () { redirectToEditWidgetForm(widget.id) };
+    tableHeader.onclick = () => redirectToEditWidgetForm(widget.id);
     tableHeader.title = 'Click to edit widget';
     widget.headerType ? tableHeader.classList.add('table-header', 'dark') : tableHeader.classList.add('table-header');
     const tableHeaderData = ['#', 'First Name', 'Last Name', 'Username'];
@@ -106,20 +106,20 @@ const createChat = (widget, widgetContainer) => {
     const editIcon = document.createElement('img');
     editIcon.classList.add("edit-icon");
     editIcon.src = 'pencil.svg';
-    editIcon.onclick = function () { redirectToEditWidgetForm(widget.id) }
+    editIcon.onclick = () => redirectToEditWidgetForm(widget.id);
     iconsContainer.appendChild(editIcon);
     const deleteIcon = document.createElement('img');
     deleteIcon.src = 'delete.svg';
-    deleteIcon.onclick = function () { deleteWidget(widget.id) };
+    deleteIcon.onclick = () => deleteWidget(widget.id);
     deleteIcon.classList.add('delete-icon');
     iconsContainer.appendChild(deleteIcon);
     widgetContainer.appendChild(iconsContainer);
     const chatSettings = document.createElement('div');
     chatSettings.classList.add('settings');
-    if (widget.headerType) {
+    if (widget.headerType === HeaderType.DARK) {
         chatSettings.classList.add('dark');
     }
-    chatSettings.onclick = function () { redirectToEditWidgetForm(widget.id) };
+    chatSettings.onclick = () => redirectToEditWidgetForm(widget.id);
     chatSettings.title = 'Click to edit widget';
     const chatType = document.createElement('p');
     chatType.textContent = 'Conversation: ' + widget.title;
@@ -182,7 +182,7 @@ const redirectToEditWidgetForm = (id) => {
 }
 
 const toggleMobileMenu = () => {
-    const mobileMenuContainer = document.getElementsByClassName('mobile-menu-container')[0];
+    const mobileMenuContainer = document.getElementById('mobile-menu-container');
     mobileMenuContainer.classList.toggle('change');
 }
 
@@ -203,4 +203,14 @@ const deleteWidget = (id) => {
     }
 
     http.send(null);
+}
+
+const WidgetType = {
+    TABLE: 0,
+    CHAT: 1
+}
+
+const HeaderType = {
+    LIGHT: 0,
+    DARK: 1
 }

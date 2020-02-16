@@ -28,7 +28,7 @@ const createChat = (widget) => {
     if (widget.headerType) {
         chatSettings.classList.add('dark');
     }
-    chatSettings.onclick = function () { redirectToEditWidgetForm(widget.id) };
+    chatSettings.onclick = () => redirectToEditWidgetForm(widget.id);
     chatSettings.title = 'Click to edit widget';
     const chatType = document.createElement('p');
     chatType.textContent = 'Conversation: ' + widget.title;

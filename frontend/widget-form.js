@@ -1,10 +1,5 @@
 const urlArr = window.location.href.split('/');
-let id;
-if (urlArr[urlArr.length - 1] !== "") {
-    id = Number(urlArr[urlArr.length - 1]);
-} else {
-    id = urlArr[urlArr.length - 1];
-}
+const id = urlArr[urlArr.length - 1];
 
 //POST
 
@@ -160,21 +155,21 @@ const checkIfEditOrAdd = () => {
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'DELETE';
         deleteButton.classList.add('field', 'delete-widget');
-        deleteButton.onclick = function () { deleteWidget(url) };
+        deleteButton.onclick = () => deleteWidget(url);
         const widgetForm = document.getElementById('widget-form');
         widgetForm.appendChild(deleteButton);
         saveButton.textContent = 'EDIT';
-        saveButton.onclick = function () { editWidget(url) };
+        saveButton.onclick = () => editWidget(url);
 
     } else {
         const url = 'http://localhost:3000/widgets/';
         formHeader.textContent = 'Add new widget';
         saveButton.textContent = 'ADD';
-        saveButton.onclick = function () { addNewWidget(url) };
+        saveButton.onclick = () => addNewWidget(url);
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     checkIfEditOrAdd();
 }, false);
 

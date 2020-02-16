@@ -28,7 +28,7 @@ const createTable = (widget) => {
     if (widget.settings) {
         table.classList.add('table-with-settings')
         const tableSettings = document.createElement('div');
-        tableSettings.onclick = function () { redirectToEditWidgetForm(widget.id) };
+        tableSettings.onclick = () => redirectToEditWidgetForm(widget.id);
         tableSettings.title = 'Click to edit widget';
         tableSettings.classList.add('settings');
         const tableType = document.createElement('p');
@@ -40,7 +40,7 @@ const createTable = (widget) => {
         widgetContainer.appendChild(tableSettings);
     }
     const tableHeader = document.createElement('tr');
-    tableHeader.onclick = function () { redirectToEditWidgetForm(widget.id) };
+    tableHeader.onclick = () => redirectToEditWidgetForm(widget.id);
     tableHeader.title = 'Click to edit widget';
     widget.headerType ? tableHeader.classList.add('table-header', 'dark') : tableHeader.classList.add('table-header');
     const tableHeaderData = ['#', 'First Name', 'Last Name', 'Username'];
