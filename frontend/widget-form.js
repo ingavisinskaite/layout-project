@@ -1,5 +1,6 @@
-const urlArr = window.location.href.split('/');
-const id = urlArr[urlArr.length - 1];
+const urlArr = window.location.href.split('widget-form');
+const paramsArr = urlArr[urlArr.length - 1].split('/');
+const id = paramsArr[paramsArr.length - 1];
 
 //POST
 

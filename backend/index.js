@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 const allowedOrigins = ["http://127.0.0.1:5500", "http://localhost:3000"];
 const corsOptions = {
     origin: (origin, callback) => {
-        if (allowedOrigins.indexOf(origin) !== -1) {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
             callback(null, true);
         } else {
-            callback(null, true);
+            callback(new Error('Not allowed by CORS'));
         }
     }
 };
@@ -43,8 +43,6 @@ app.use("/app", (req, res) => {
     res.sendFile(fileToServe, { root: "../frontend" })
 })
 
-app.options("*", cors(corsOptions));
-
 app.get("/widgets", cors(corsOptions), (req, res) => {
 
     res.json({
@@ -71,7 +69,7 @@ app.get("/widgets/:id", cors(corsOptions), (req, res) => {
     })
 });
 
-app.post("/widgets", (req, res) => {
+app.post("/widgets", cors(corsOptions), (req, res) => {
     const id = initialWidgets[initialWidgets.length - 1].id + 1;
     const column = req.body.column;
     const type = req.body.type;

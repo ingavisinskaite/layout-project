@@ -295,7 +295,7 @@ tr:hover:not(.table-header) {
   text-decoration: none;
   color: #ffffff;
   width: 100%;
-  padding: 8px 0;
+  padding: 8px 2px;
 }
 
 .documentation::before {
