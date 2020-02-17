@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }, false);
 
 const redirectToHomepage = () => {
-    window.location.replace('http://localhost:3000/app/dashboard/');
+    window.location.replace(document.referrer);
 }
 
 const getFormFields = () => {
