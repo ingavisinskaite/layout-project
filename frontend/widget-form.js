@@ -1,19 +1,11 @@
-const urlArr = window.location.href.split('/');
-let id;
-if (urlArr[urlArr.length - 1] !== "") {
-    id = Number(urlArr[urlArr.length - 1]);
-} else {
-    id = urlArr[urlArr.length - 1];
-}
+const urlArr = window.location.href.split('widget-form');
+const paramsArr = urlArr[urlArr.length - 1].split('/');
+const id = paramsArr[paramsArr.length - 1];
 
 //POST
 
 const addNewWidget = (url) => {
     const formValues = getFormValues();
-    const title = formValues.title;
-    const column = parseInt(formValues.column);
-    const type = parseInt(formValues.type);
-    const headerType = parseInt(formValues.headerType);
     const data = JSON.parse(formValues.data);
     let dataArray = [];
     if (!(data instanceof Array)) {
@@ -23,10 +15,10 @@ const addNewWidget = (url) => {
     }
 
     const newWidget = {
-        column,
-        type,
-        title,
-        headerType,
+        column: parseInt(formValues.column),
+        type: parseInt(formValues.type),
+        title: formValues.title,
+        headerType: parseInt(formValues.headerType),
         dataArray
     }
 
@@ -86,10 +78,6 @@ const fillEditForm = (widget) => {
 
 const editWidget = (url) => {
     const formValues = getFormValues();
-    const title = formValues.title;
-    const column = parseInt(formValues.column);
-    const type = parseInt(formValues.type);
-    const headerType = parseInt(formValues.headerType);
     const data = JSON.parse(formValues.data);
     let dataArray = [];
     if (!(data instanceof Array)) {
@@ -99,10 +87,10 @@ const editWidget = (url) => {
     }
 
     const editedWidget = {
-        column,
-        type,
-        title,
-        headerType,
+        column: parseInt(formValues.column),
+        type: parseInt(formValues.type),
+        title: formValues.title,
+        headerType: parseInt(formValues.headerType),
         dataArray
     }
 
@@ -152,29 +140,28 @@ const deleteWidget = (url) => {
 const checkIfEditOrAdd = () => {
     const formHeader = document.getElementById('form-header');
     const saveButton = document.getElementById('save-widget');
+    const baseAPIUrl = 'http://localhost:3000/widgets/';
 
     if (id !== "") {
-        const url = 'http://localhost:3000/widgets/' + id;
-        getWidget(url);
+        getWidget(baseAPIUrl + id);
         formHeader.textContent = 'Edit widget';
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'DELETE';
         deleteButton.classList.add('field', 'delete-widget');
-        deleteButton.onclick = function () { deleteWidget(url) };
+        deleteButton.onclick = () => deleteWidget(baseAPIUrl + id);
         const widgetForm = document.getElementById('widget-form');
         widgetForm.appendChild(deleteButton);
         saveButton.textContent = 'EDIT';
-        saveButton.onclick = function () { editWidget(url) };
+        saveButton.onclick = () => editWidget(baseAPIUrl + id);
 
     } else {
-        const url = 'http://localhost:3000/widgets/';
         formHeader.textContent = 'Add new widget';
         saveButton.textContent = 'ADD';
-        saveButton.onclick = function () { addNewWidget(url) };
+        saveButton.onclick = () => addNewWidget(baseAPIUrl);
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     checkIfEditOrAdd();
 }, false);
 

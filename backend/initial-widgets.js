@@ -94,21 +94,21 @@ module.exports = [
                 author: 'David Scott',
                 img: 'https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg',
                 message: 'Maecenas commodo commodo felis at placerat.Aliquam et magna sit amet nisi fermentum posuere.',
-                isMine: false
+                isOnRightSide: false
             },
             {
                 id: 1,
                 author: 'David Scott',
                 img: 'https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg',
                 message: 'Maecenas commodo commodo felis at placerat.Aliquam et magna sit amet nisi fermentum posuere.',
-                isMine: false
+                isOnRightSide: false
             },
             {
                 id: 2,
                 author: 'Donald Trump',
                 img: 'https://media4.s-nbcnews.com/i/newscms/2019_28/2929131/190618-allan-smith-byline1860_e20f6bbeb1d9b2496dd6943f6a3da256.jpg',
                 message: 'Maecenas commodo commodo felis at placerat.Aliquam et magna sit amet nisi fermentum posuere.',
-                isMine: true
+                isOnRightSide: true
             }
         ]
     },
@@ -125,28 +125,28 @@ module.exports = [
                 author: 'David Scott',
                 img: 'https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg',
                 message: 'Maecenas commodo commodo felis at placerat.Aliquam et magna sit amet nisi fermentum posuere.',
-                isMine: false
+                isOnRightSide: false
             },
             {
                 id: 1,
                 author: 'Chris Smith',
                 img: 'https://qodebrisbane.com/wp-content/uploads/2019/07/This-is-not-a-person-2-1.jpeg',
                 message: 'Maecenas commodo commodo felis at placerat.Aliquam et magna sit amet nisi fermentum posuere.',
-                isMine: false
+                isOnRightSide: false
             },
             {
                 id: 2,
                 author: 'Donald Trump',
                 img: 'https://media4.s-nbcnews.com/i/newscms/2019_28/2929131/190618-allan-smith-byline1860_e20f6bbeb1d9b2496dd6943f6a3da256.jpg',
                 message: 'Maecenas commodo commodo felis at placerat.Aliquam et magna sit amet nisi fermentum posuere.',
-                isMine: true
+                isOnRightSide: true
             },
             {
                 id: 3,
                 author: 'Donald Trump',
                 img: 'https://media4.s-nbcnews.com/i/newscms/2019_28/2929131/190618-allan-smith-byline1860_e20f6bbeb1d9b2496dd6943f6a3da256.jpg',
                 message: 'Maecenas commodo commodo felis at placerat.Aliquam et magna sit amet nisi fermentum posuere.',
-                isMine: true
+                isOnRightSide: true
             }
         ]
     },
