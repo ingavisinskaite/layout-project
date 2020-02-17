@@ -28,37 +28,71 @@ const createTable = (widget) => {
     widgetContainer.classList.add('widget', 'table');
     const table = document.createElement('table');
     table.classList.add('table-data');
-    const iconsContainer = document.createElement('div');
-    iconsContainer.classList.add("edit-delete-icons-container");
-    const editIcon = document.createElement('img');
-    editIcon.classList.add("edit-icon");
-    editIcon.src = 'pencil.svg';
-    editIcon.onclick = () => redirectToWidgetForm(widget.id);
-    iconsContainer.appendChild(editIcon);
-    const deleteIcon = document.createElement('img');
-    deleteIcon.src = 'delete.svg';
-    deleteIcon.onclick = () => deleteWidget(widget.id);
-    deleteIcon.classList.add('delete-icon');
-    iconsContainer.appendChild(deleteIcon);
+    const iconsContainer = createIconsContainer(widget.id);
     widgetContainer.appendChild(iconsContainer);
     if (widget.settings) {
         table.classList.add('table-with-settings')
-        const tableSettings = document.createElement('div');
-        tableSettings.onclick = () => redirectToWidgetForm(widget.id);
-        tableSettings.title = 'Click to edit widget';
-        tableSettings.classList.add('settings');
-        const tableType = document.createElement('p');
-        tableType.textContent = 'Dashboard: ' + widget.title;
-        tableSettings.appendChild(tableType);
-        const settingsIcon = document.createElement('div');
-        settingsIcon.classList.add('settings-icon', 'arrow-bottom');
-        tableSettings.appendChild(settingsIcon);
+        const tableSettings = createSettingsHeader(widget.headerType, widget.id, 'Dashboard: ' + widget.title);
         widgetContainer.appendChild(tableSettings);
     }
+    const tableHeader = createTableHeader(widget.id, widget.headerType);
+    table.appendChild(tableHeader);
+    createTableRows(widget.data, table);
+    widgetContainer.appendChild(table);
+    if (widget.column === 3) {
+        const column = document.getElementById('column3-widgets');
+        column.appendChild(widgetContainer);
+    } else {
+        const column = document.getElementById('column' + widget.column);
+        column.appendChild(widgetContainer);
+    }
+}
+
+const createIconsContainer = (widgetId) => {
+    const iconsContainer = document.createElement('div');
+    iconsContainer.classList.add("edit-delete-icons-container");
+    const editIcon = createIcon('edit', 'pencil.svg', redirectToWidgetForm, widgetId);
+    iconsContainer.appendChild(editIcon);
+    const deleteIcon = createIcon('delete', 'delete.svg', deleteWidget, widgetId);
+    iconsContainer.appendChild(deleteIcon);
+    return iconsContainer;
+}
+
+const createIcon = (type, imgSrc, action, parameter) => {
+    const icon = document.createElement('img');
+    icon.classList.add(type + '-icon');
+    icon.src = imgSrc;
+    icon.onclick = () => action(parameter);
+    return icon;
+}
+
+const createSettingsIcon = () => {
+    const settingsIcon = document.createElement('div');
+    settingsIcon.classList.add('settings-icon', 'arrow-bottom');
+    return settingsIcon;
+}
+
+const createSettingsHeader = (headerType, widgetId, widgetHeader) => {
+    const settingsHeader = document.createElement('div');
+    settingsHeader.classList.add('settings');
+    if (headerType === HeaderType.DARK) {
+        settingsHeader.classList.add('dark');
+    }
+    settingsHeader.onclick = () => redirectToWidgetForm(widgetId);
+    settingsHeader.title = 'Click to edit widget';
+    const settingsHeaderText = document.createElement('p');
+    settingsHeaderText.textContent = widgetHeader;
+    settingsHeader.appendChild(settingsHeaderText);
+    const settingsIcon = createSettingsIcon();
+    settingsHeader.appendChild(settingsIcon);
+    return settingsHeader;
+}
+
+const createTableHeader = (widgetId, headerType) => {
     const tableHeader = document.createElement('tr');
-    tableHeader.onclick = () => redirectToWidgetForm(widget.id);
+    tableHeader.onclick = () => redirectToWidgetForm(widgetId);
     tableHeader.title = 'Click to edit widget';
-    if (widget.headerType === HeaderType.DARK) {
+    if (headerType === HeaderType.DARK) {
         tableHeader.classList.add('table-header', 'dark');
     } else {
         tableHeader.classList.add('table-header');
@@ -69,8 +103,11 @@ const createTable = (widget) => {
         tableHeaderCol.textContent = data;
         tableHeader.appendChild(tableHeaderCol);
     })
-    table.appendChild(tableHeader);
-    widget.data.forEach(rowData => {
+    return tableHeader;
+}
+
+const createTableRows = (data, table) => {
+    data.forEach(rowData => {
         const tableRow = document.createElement('tr');
         const tableRowId = document.createElement('td');
         tableRowId.textContent = rowData.id;
@@ -86,14 +123,6 @@ const createTable = (widget) => {
         tableRow.appendChild(tableRowUsername);
         table.appendChild(tableRow);
     })
-    widgetContainer.appendChild(table);
-    if (widget.column === 3) {
-        const column = document.getElementById('column3-widgets');
-        column.appendChild(widgetContainer);
-    } else {
-        const column = document.getElementById('column' + widget.column);
-        column.appendChild(widgetContainer);
-    }
 }
 
 const deleteWidget = (id) => {
