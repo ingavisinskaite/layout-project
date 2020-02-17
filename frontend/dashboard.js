@@ -1,10 +1,10 @@
-const baseAPIUrl = 'http://localhost:3000/widgets/';
-const widgetFormUrl = 'http://localhost:3000/app/widget-form/';
+const BASE_API_URL = 'http://localhost:3000/widgets/';
+const WIDGET_FORM_URL = 'http://localhost:3000/app/widget-form/';
 
 (() => {
     const http = new XMLHttpRequest();
 
-    http.open('GET', baseAPIUrl);
+    http.open('GET', BASE_API_URL);
     http.send();
 
     http.onreadystatechange = () => {
@@ -26,7 +26,7 @@ const createWidget = (widget) => {
     widgetContainer.classList.add('widget');
     if (widget.type === WidgetType.TABLE) {
         createTable(widget, widgetContainer);
-    } else {
+    } else if (widget.type === WidgetType.MESSAGES) {
         createChat(widget, widgetContainer)
     }
 
@@ -216,10 +216,10 @@ const createSettingsHeader = (headerType, widgetId, widgetHeader) => {
 }
 
 const redirectToWidgetForm = (id = null) => {
-    if (id !== null) {
-        location.href = widgetFormUrl + id;
+    if (id) {
+        location.href = WIDGET_FORM_URL + id;
     } else {
-        location.href = widgetFormUrl;
+        location.href = WIDGET_FORM_URL;
     }
 }
 
@@ -234,7 +234,7 @@ const toggleMobileMenu = () => {
 
 const deleteWidget = (id) => {
     const http = new XMLHttpRequest();
-    const url = baseAPIUrl + id;
+    const url = BASE_API_URL + id;
 
     http.open('DELETE', url, true);
 
@@ -253,7 +253,7 @@ const deleteWidget = (id) => {
 
 const WidgetType = {
     TABLE: 0,
-    CHAT: 1
+    MESSAGES: 1
 }
 
 const HeaderType = {

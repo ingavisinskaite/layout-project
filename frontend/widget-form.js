@@ -1,6 +1,6 @@
 const urlArr = window.location.href.split('widget-form');
 const paramsArr = urlArr[urlArr.length - 1].split('/');
-const id = paramsArr[paramsArr.length - 1];
+const id = paramsArr[paramsArr.length - 1] || null;
 
 //POST
 
@@ -140,24 +140,24 @@ const deleteWidget = (url) => {
 const checkIfEditOrAdd = () => {
     const formHeader = document.getElementById('form-header');
     const saveButton = document.getElementById('save-widget');
-    const baseAPIUrl = 'http://localhost:3000/widgets/';
+    const BASE_API_URL = 'http://localhost:3000/widgets/';
 
-    if (id !== "") {
-        getWidget(baseAPIUrl + id);
+    if (id) {
+        getWidget(BASE_API_URL + id);
         formHeader.textContent = 'Edit widget';
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'DELETE';
         deleteButton.classList.add('field', 'delete-widget');
-        deleteButton.onclick = () => deleteWidget(baseAPIUrl + id);
+        deleteButton.onclick = () => deleteWidget(BASE_API_URL + id);
         const widgetForm = document.getElementById('widget-form');
         widgetForm.appendChild(deleteButton);
         saveButton.textContent = 'EDIT';
-        saveButton.onclick = () => editWidget(baseAPIUrl + id);
+        saveButton.onclick = () => editWidget(BASE_API_URL + id);
 
     } else {
         formHeader.textContent = 'Add new widget';
         saveButton.textContent = 'ADD';
-        saveButton.onclick = () => addNewWidget(baseAPIUrl);
+        saveButton.onclick = () => addNewWidget(BASE_API_URL);
     }
 }
 

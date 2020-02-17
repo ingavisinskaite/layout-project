@@ -1,9 +1,9 @@
 (() => {
     const WidgetType = {
         TABLE: 0,
-        CHAT: 1
+        MESSAGES: 1
     }
-    const url = 'http://localhost:3000/widgets/filter/' + WidgetType.CHAT;
+    const url = 'http://localhost:3000/widgets/filter/' + WidgetType.MESSAGES;
     const http = new XMLHttpRequest();
 
     http.open('GET', url);

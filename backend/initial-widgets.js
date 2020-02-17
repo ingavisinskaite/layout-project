@@ -1,6 +1,6 @@
 module.exports = [
     {
-        id: 0,
+        id: 1,
         column: 1,
         type: 0,
         title: 'Table',
@@ -82,7 +82,7 @@ module.exports = [
         ]
     },
     {
-        id: 1,
+        id: 2,
         column: 1,
         type: 1,
         title: 'Users',
@@ -113,7 +113,7 @@ module.exports = [
         ]
     },
     {
-        id: 2,
+        id: 3,
         column: 2,
         type: 1,
         title: 'Software',
@@ -151,7 +151,7 @@ module.exports = [
         ]
     },
     {
-        id: 3,
+        id: 4,
         column: 2,
         type: 0,
         title: 'Users',
@@ -191,7 +191,7 @@ module.exports = [
         ]
     },
     {
-        id: 4,
+        id: 5,
         column: 3,
         type: 0,
         title: 'Table',
@@ -219,7 +219,7 @@ module.exports = [
         ]
     },
     {
-        id: 5,
+        id: 6,
         column: 3,
         type: 0,
         title: 'Table',
@@ -247,7 +247,7 @@ module.exports = [
         ]
     },
     {
-        id: 6,
+        id: 7,
         column: 3,
         type: 0,
         title: 'Table',

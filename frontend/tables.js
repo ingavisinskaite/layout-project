@@ -1,7 +1,7 @@
 (() => {
     const WidgetType = {
         TABLE: 0,
-        CHAT: 1
+        MESSAGES: 1
     }
     const url = 'http://localhost:3000/widgets/filter/' + WidgetType.TABLE;
     const http = new XMLHttpRequest();
