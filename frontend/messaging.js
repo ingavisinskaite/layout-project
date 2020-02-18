@@ -5,10 +5,8 @@
     }
     const url = 'http://localhost:3000/widgets/filter/' + WidgetType.MESSAGES;
     const http = new XMLHttpRequest();
-
     http.open('GET', url);
     http.send();
-
     http.onreadystatechange = () => {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
@@ -160,9 +158,7 @@ const redirectToHomepage = () => {
 const deleteWidget = (id) => {
     const http = new XMLHttpRequest();
     const url = 'http://localhost:3000/widgets/' + id;
-
     http.open('DELETE', url, true);
-
     http.onreadystatechange = () => {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
@@ -172,7 +168,6 @@ const deleteWidget = (id) => {
             }
         }
     }
-
     http.send(null);
 }
 

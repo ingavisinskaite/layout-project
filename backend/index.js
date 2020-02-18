@@ -62,10 +62,10 @@ app.get("/widgets/filter/:type", cors(corsOptions), (req, res) => {
 
 app.get("/widgets/:id", cors(corsOptions), (req, res) => {
     const id = Number(req.params.id);
-    let widgetToEdit = allWidgets.find(widget => widget.id === id);
+    let widget = allWidgets.find(widget => widget.id === id);
 
     res.json({
-        widgetToEdit
+        widget
     })
 });
 

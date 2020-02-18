@@ -3,10 +3,8 @@ const WIDGET_FORM_URL = 'http://localhost:3000/app/widget-form/';
 
 (() => {
     const http = new XMLHttpRequest();
-
     http.open('GET', BASE_API_URL);
     http.send();
-
     http.onreadystatechange = () => {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
@@ -235,9 +233,7 @@ const toggleMobileMenu = () => {
 const deleteWidget = (id) => {
     const http = new XMLHttpRequest();
     const url = BASE_API_URL + id;
-
     http.open('DELETE', url, true);
-
     http.onreadystatechange = () => {
         if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
@@ -247,7 +243,6 @@ const deleteWidget = (id) => {
             }
         }
     }
-
     http.send(null);
 }
 
