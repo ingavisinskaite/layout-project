@@ -343,11 +343,6 @@ tr:hover:not(.table-header) {
   margin-left: 16px;
 }
 
-.planet a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
 .planet {
   display: flex;
   align-items: center;
@@ -687,10 +682,6 @@ hr {
     flex: 1 0 25%;
   }
 
-  #column3-innerSection {
-    flex: 1 0 auto;
-  }
-
   #column3-innerSection article {
     flex: 1 0 20%;
   }
@@ -724,14 +715,11 @@ hr {
   }
 
   #logo {
-    height: 80px;
     flex: 1 0 20%;
     letter-spacing: 1px;
   }
 
   .links.desktop {
-    height: 80px;
-    width: 80%;
     display: none;
   }
 
@@ -757,10 +745,6 @@ hr {
     display: none;
   }
 
-  #columns {
-    flex-wrap: wrap;
-  }
-
   #column3 {
     flex-wrap: wrap;
     flex-direction: row;
@@ -772,7 +756,7 @@ hr {
   }
 
   #column3-innerSection article {
-    flex: 1 0 33%;
+    flex: 1 0 30%;
   }
 }
 

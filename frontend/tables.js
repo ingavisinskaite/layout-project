@@ -49,7 +49,7 @@ const createTable = (widget) => {
 const createIconsContainer = (widgetId) => {
     const iconsContainer = document.createElement('div');
     iconsContainer.classList.add("edit-delete-icons-container");
-    const editIcon = createIcon('edit', 'pencil.svg', redirectToWidgetForm, widgetId);
+    const editIcon = createIcon('edit', 'edit.svg', redirectToWidgetForm, widgetId);
     iconsContainer.appendChild(editIcon);
     const deleteIcon = createIcon('delete', 'delete.svg', deleteWidget, widgetId);
     iconsContainer.appendChild(deleteIcon);
