@@ -43,6 +43,8 @@ app.use('/app', (req, res) => {
   res.sendFile(fileToServe, { root: '../frontend' });
 });
 
+app.options('*', cors());
+
 app.get('/widgets', cors(corsOptions), (req, res) => {
   res.send(allWidgets);
 });
@@ -52,27 +54,24 @@ app.get('/widgets/filter/:type', cors(corsOptions), (req, res) => {
 
   filteredWidgets = allWidgets.filter(widget => widget.type === filter);
 
-  res.json({
-    filteredWidgets
-  });
+  res.send(filteredWidgets);
 });
 
 app.get('/widgets/:id', cors(corsOptions), (req, res) => {
   const id = Number(req.params.id);
   let widget = allWidgets.find(widget => widget.id === id);
 
-  res.json({
-    widget
-  });
+  res.send(widget);
 });
 
 app.post('/widgets', cors(corsOptions), (req, res) => {
   const id = initialWidgets[initialWidgets.length - 1].id + 1;
   const column = req.body.column;
-  const type = req.body.type;
+  const type = parseInt(req.body.type);
   const title = req.body.title;
-  const headerType = req.body.headerType;
-  const data = req.body.dataArray;
+  const headerType = parseInt(req.body.headerType);
+  const settings = parseInt(req.body.settings);
+  const data = req.body.data;
 
   const newWidget = {
     id,
@@ -80,6 +79,7 @@ app.post('/widgets', cors(corsOptions), (req, res) => {
     type,
     title,
     headerType,
+    settings,
     data
   };
 
@@ -93,10 +93,11 @@ app.post('/widgets', cors(corsOptions), (req, res) => {
 app.put('/widgets/:id', cors(corsOptions), (req, res) => {
   const id = Number(req.params.id);
   const column = req.body.column;
-  const type = req.body.type;
+  const type = parseInt(req.body.type);
   const title = req.body.title;
-  const headerType = req.body.headerType;
-  const data = req.body.dataArray;
+  const headerType = parseInt(req.body.headerType);
+  const settings = parseInt(req.body.settings);
+  const data = req.body.data;
 
   let indexOfWidget = allWidgets.findIndex(widget => widget.id === id);
 
@@ -106,6 +107,7 @@ app.put('/widgets/:id', cors(corsOptions), (req, res) => {
     type,
     title,
     headerType,
+    settings,
     data
   };
 
